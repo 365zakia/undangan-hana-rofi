@@ -28,7 +28,32 @@
         </div>
     </div>
 </section>
+
+<script>
+    const openBtn = document.querySelector('.btn');
+    const heroSection = document.querySelector('.hero');
+    const mainSection = document.querySelector('#main-content');
+
+    openBtn.addEventListener('click', function() {
+        // 1. Hilangkan Cover (Hero)
+        heroSection.style.opacity = '0';
+        heroSection.style.transition = '0.8s';
+        
+        setTimeout(() => {
+            heroSection.classList.add('hidden');
+            
+            // 2. Munculkan Halaman Utama
+            mainSection.classList.remove('hidden');
+            
+            // 3. Picu Animasi (Bunga & Karakter masuk)
+            setTimeout(() => {
+                mainSection.classList.add('show-anim');
+            }, 100);
+        }, 800);
+    });
+</script>
 </body>
 
 </html>
+
 

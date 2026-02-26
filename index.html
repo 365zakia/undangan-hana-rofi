@@ -1,55 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wedding Invitation</title>
-
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  background: url('latar1.png') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: serif;
-}
-
-/* Overlay supaya teks lebih terlihat */
-.overlay {
-  text-align: center;
-  color: white;
-  animation: fadeIn 3s ease forwards;
-  opacity: 0;
-}
-
-/* Nama */
-.names {
-  font-size: 50px;
-  font-weight: bold;
-}
-
-/* Animasi fade */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Hana & Rofi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="overlay">
-  <h3>The Wedding Of</h3>
-  <div class="names">Hana & Rofi</div>
-</div>
-
+    <section class="hero">
+        <div class="content">
+            <div class="logo animate-fade">HR</div>
+            <p class="sub-title animate-fade delay-1">UNDANGAN PERNIKAHAN</p>
+            <h1 class="nama animate-fade delay-2">Hana & Rofi</h1>
+            <p class="invite-text animate-fade delay-3">MENGUNDANG ANDA UNTUK HADIR PADA PERNIKAHAN KAMI</p>
+            <button class="btn animate-fade delay-4">Buka Undangan</button>
+        </div>
+    </section>
 </body>
 </html>

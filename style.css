@@ -22,49 +22,54 @@ body, html {
     text-align: center;
 }
 
-/* Container: Kita tambah margin-bottom agar posisi teks terdorong ke atas */
+/* Container: Kita gunakan margin-top agar teks turun sedikit dari logo HR di gambar background */
 .content {
     max-width: 80%;
     z-index: 1;
-    margin-bottom: 100px; /* Ubah angka ini: semakin besar, teks semakin naik ke atas */
+    margin-top: -50px; /* Menarik teks sedikit ke atas agar pas di tengah area putih */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Styling Tulisan "Hana & Rofi" */
 h1 {
     font-family: 'Great Vibes', cursive;
     color: #5d467c;
-    /* Kita kunci ukurannya agar pas dengan bingkai putih di desainmu */
-    font-size: 60px; 
-    margin: 15px 0; /* Mengurangi jarak atas bawah agar lebih rapat */
+    /* Diperbesar agar sesuai gambar acuan */
+    font-size: 90px; 
+    line-height: 0.8; /* Membuat jarak antara Hana, &, dan Rofi lebih rapat/aesthetic */
+    margin: 20px 0; 
     font-weight: normal;
+    text-align: center;
 }
 
 /* Styling Teks Pendukung */
 p {
     font-family: 'Montserrat', sans-serif;
     color: #5d467c;
-    font-size: 8px; /* Sedikit lebih kecil agar elegan */
-    letter-spacing: 1px;
-    line-height: 1.6;
-    font-weight: 400;
+    font-size: 13px; /* Sedikit lebih besar agar mudah dibaca */
+    letter-spacing: 3px; /* Jarak antar huruf diperlebar agar terlihat mewah */
+    line-height: 1.8;
+    font-weight: 500;
     text-transform: uppercase;
-    margin: 0; /* Menghapus margin bawaan browser agar jaraknya presisi */
+    text-align: center;
+    margin: 5px 0;
 }
 
-/* Styling Tombol Buka Undangan (Warna Hijau Zaitun sesuai gambar) */
+/* Tombol Buka Undangan */
 .btn {
-    margin-top: 30px;
-    padding: 12px 30px;
-    background-color: #889149; /* Warna hijau zaitun dari desainmu */
+    margin-top: 40px;
+    padding: 12px 35px;
+    background-color: #8a8d4a; 
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .btn:hover {
@@ -95,6 +100,7 @@ p {
 .delay-2 { animation-delay: 1.5s; } /* Hana & Rofi */
 .delay-3 { animation-delay: 2.5s; } /* Mengundang Anda... */
 .delay-4 { animation-delay: 3.5s; } /* Tombol */
+
 
 
 

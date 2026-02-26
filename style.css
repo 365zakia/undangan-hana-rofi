@@ -117,6 +117,7 @@ p {
 /* Catatan: Tombol (delay-4) sudah tidak perlu class ini karena sudah masuk ke dalam .btn di atas */
 
 /* --- BAGIAN HALAMAN KEDUA --- */
+/* --- PERBAIKAN TOTAL HALAMAN KEDUA (STUCK DI BAWAH) --- */
 
 /* Sembunyikan halaman kedua di awal */
 .hidden {
@@ -128,44 +129,58 @@ p {
     width: 100%;
     min-height: 100vh;
     background-color: #ffffff; /* Background putih bersih */
-    overflow: hidden;
+    overflow: hidden; /* Supaya elemen yang meluncur nggak kelihatan di luar layar */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Pengaturan Gambar Dekorasi */
-.deco-top, .char-img {
-    width: 100%;
-    max-width: 500px; 
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
+/* --- Pengaturan Gambar Dekorasi --- */
 
-/* Animasi Bunga Atas meluncur dari atas */
-.anim-top {
+/* 1. Bunga Atas: Lebar penuh, nempel di paling atas */
+.deco-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    transform: translateY(-100%); 
+    height: auto;
+    z-index: 1;
+    transform: translateY(-100%); /* Awalnya di luar layar atas */
     transition: transform 1.5s ease-out;
 }
 
-/* Animasi Bunga Bawah & Karakter meluncur dari bawah */
-.anim-bottom {
+/* 2. Bunga Bawah & Karakter: Container utama yang nempel di bawah */
+.char-container {
     position: absolute;
-    bottom: 0;
+    bottom: 0; /* INI KUNCINYA: Nempel di paling bawah */
     left: 0;
     width: 100%;
-    transform: translateY(100%); 
+    height: 60vh; /* Kita batasi tinggi containernya biar nggak ke atas */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Supaya gambarnya 'duduk' di dasar container */
+    z-index: 1;
+    transform: translateY(100%); /* Awalnya di luar layar bawah */
     transition: transform 1.5s ease-out;
 }
 
-/* Kontainer Teks Nama & Tanggal */
+/* 3. Gambar Karakter: Atur ukuran agar pas */
+.char-img {
+    height: 100%; /* Tingginya ngikutin containernya (60vh) */
+    width: auto; /* Lebarnya nyesuain biar nggak gepeng */
+    max-width: 100%; /* Biar nggak ngelebar di layar kecil */
+    display: block;
+}
+
+/* --- Pengaturan Teks --- */
+
+/* Kontainer Teks Nama & Tanggal: Beri jarak dari atas agar di tengah */
 .inner-content {
     position: relative;
-    z-index: 2;
-    padding-top: 150px; /* Atur ini agar teks tidak tertutup bunga atas */
+    z-index: 2; /* Di atas bunga */
+    padding-top: 20vh; /* Jarak agar teks di posisi tengah atas */
+    width: 80%;
 }
 
 /* Styling Nama & Tanggal di Halaman 2 */
@@ -188,7 +203,7 @@ p {
     transition: opacity 1s ease 1.5s;
 }
 
-/* TRIGGER ANIMASI SAAT KLIK */
+/* --- TRIGGER ANIMASI SAAT KLIK (Tidak Berubah) --- */
 .show-anim .anim-top, 
 .show-anim .anim-bottom {
     transform: translateY(0);

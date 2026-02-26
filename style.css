@@ -26,7 +26,7 @@ body, html {
 .content {
     max-width: 80%;
     z-index: 1;
-    margin-bottom: 100px; /* Ubah angka ini: semakin besar, teks semakin naik ke atas */
+    margin-bottom: 85px; /* Ubah angka ini: semakin besar, teks semakin naik ke atas */
 }
 
 /* Styling Tulisan "Hana & Rofi" */
@@ -95,6 +95,7 @@ p {
 .delay-2 { animation-delay: 1.5s; } /* Hana & Rofi */
 .delay-3 { animation-delay: 2.5s; } /* Mengundang Anda... */
 .delay-4 { animation-delay: 3.5s; } /* Tombol */
+
 
 
 

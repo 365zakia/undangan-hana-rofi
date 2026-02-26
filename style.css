@@ -34,7 +34,7 @@ h1 {
     font-family: 'Great Vibes', cursive;
     color: #5d467c;
     /* Kita kunci ukurannya agar pas dengan bingkai putih di desainmu */
-    font-size: 65px; 
+    font-size: 58px; 
     margin: 10px 0; /* Mengurangi jarak atas bawah agar lebih rapat */
     font-weight: normal;
 }
@@ -95,4 +95,5 @@ p {
 .delay-2 { animation-delay: 1.5s; } /* Hana & Rofi */
 .delay-3 { animation-delay: 2.5s; } /* Mengundang Anda... */
 .delay-4 { animation-delay: 3.5s; } /* Tombol */
+
 

@@ -66,8 +66,10 @@ p {
     
     /* GABUNGAN ANIMASI: 
        1. Muncul (fadeInUp) selama 1.2 detik 
-       2. Berdenyut (pulse-animation) selamanya, tapi nunggu munculnya selesai dulu (delay 3.5 detik) */
-    animation: fadeInUp 1.2s ease forwards, pulse-animation 2s infinite 3.5s;
+       2. fadeInUp muncul setelah 3.5 detik (setelah teks "Mengundang Anda..." selesai)
+       pulse-animation mulai berdenyut setelah 4.7 detik (3.5s delay + 1.2s durasi muncul) */
+    animation: fadeInUp 1.2s ease 3.5s forwards, 
+               pulse-animation 2s infinite 4.7s;
     opacity: 0; /* Awalnya transparan sebelum muncul */
 }
 
@@ -93,15 +95,12 @@ p {
 @keyframes pulse-animation {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(138, 145, 73, 0.7);
     }
     70% {
         transform: scale(1.05);
-        box-shadow: 0 0 0 15px rgba(138, 145, 73, 0);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(138, 145, 73, 0);
     }
 }
 
@@ -116,6 +115,7 @@ p {
 .delay-2 { animation-delay: 1.5s; }
 .delay-3 { animation-delay: 2.5s; }
 /* Catatan: Tombol (delay-4) sudah tidak perlu class ini karena sudah masuk ke dalam .btn di atas */
+
 
 
 

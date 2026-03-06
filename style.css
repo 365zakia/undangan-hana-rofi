@@ -1,6 +1,6 @@
 /* --- RESET --- */
 
-body, html{
+body,html{
 margin:0;
 padding:0;
 overflow-x:hidden;
@@ -8,11 +8,14 @@ scroll-behavior:smooth;
 }
 
 
+
 /* --- HALAMAN 1 HERO --- */
 
 .hero{
+
 height:100vh;
 width:100%;
+
 background-image:url('background.png');
 background-size:cover;
 background-position:center;
@@ -21,6 +24,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 }
 
 .content{
@@ -29,25 +33,43 @@ z-index:1;
 margin-bottom:85px;
 }
 
+
+
 h1.nama{
-font-family:'Great Vibes', cursive !important;
+
+font-family:'Great Vibes',cursive !important;
 color:#5d467c;
+
 font-size:60px;
+
 margin:15px 0;
 font-weight:normal;
 line-height:1.2;
+
 }
+
+
 
 p{
-font-family:'Montserrat', sans-serif;
+
+font-family:'Montserrat',sans-serif;
+
 color:#5d467c;
+
 font-size:11px;
+
 letter-spacing:2px;
+
 text-transform:uppercase;
+
 }
 
+
+
 .btn{
+
 margin-top:45px;
+
 padding:12px 30px;
 
 background-color:#889149;
@@ -56,7 +78,7 @@ color:white;
 border:none;
 border-radius:10px;
 
-font-family:'Montserrat', sans-serif;
+font-family:'Montserrat',sans-serif;
 font-size:14px;
 font-weight:700;
 
@@ -67,7 +89,9 @@ opacity:0;
 animation:
 fadeInUp 1.2s ease 3.5s forwards,
 pulse-animation 2s infinite 4.7s;
+
 }
+
 
 
 /* --- HALAMAN 2 --- */
@@ -76,35 +100,50 @@ pulse-animation 2s infinite 4.7s;
 display:none !important;
 }
 
+
+
 .main-page{
 
 position:relative;
+
 width:100%;
-height:100vh;
+
+min-height:100vh;
 
 background-image:url('background-halaman-2.png');
+
 background-size:cover;
+
 background-position:center;
 
 overflow:hidden;
 
 display:flex;
+
 justify-content:center;
+
 align-items:flex-start;
 
 text-align:center;
 
 }
 
+
+
 .inner-content{
+
 z-index:10;
+
 margin-top:8vh;
+
 }
+
 
 
 .nama-horizontal{
 
-font-family:'Great Vibes', cursive !important;
+font-family:'Great Vibes',cursive !important;
+
 color:#5d467c;
 
 font-size:55px;
@@ -114,39 +153,50 @@ white-space:nowrap;
 margin:0;
 
 opacity:0;
+
 transform:translateY(30px);
 
 transition:all 1.5s ease 0.5s;
+
 }
+
+
 
 .date-page{
 
-font-family:'Montserrat', sans-serif !important;
+font-family:'Montserrat',sans-serif !important;
+
 font-size:14px;
 
 letter-spacing:5px;
 
 color:#5d467c;
+
 font-weight:700;
 
 margin-top:5px;
 
 opacity:0;
+
 transform:translateY(20px);
 
 transition:all 1.5s ease 1s;
 
 text-transform:uppercase;
+
 }
+
 
 
 .show-anim .show-anim-text,
 .show-anim .date-page{
 
 opacity:1;
+
 transform:translateY(0);
 
 }
+
 
 
 /* --- EFEK BUNGA --- */
@@ -154,13 +204,18 @@ transform:translateY(0);
 .petal{
 
 position:absolute;
+
 top:-10vh;
+
 z-index:5;
+
 pointer-events:none;
 
 animation:fallRotation linear forwards;
 
 }
+
+
 
 @keyframes fallRotation{
 
@@ -173,6 +228,7 @@ transform:translateY(110vh) rotate(360deg);
 }
 
 }
+
 
 
 /* --- ANIMASI --- */
@@ -191,51 +247,49 @@ transform:translateY(0);
 
 }
 
+
+
 @keyframes pulse-animation{
 
-0%{
-transform:scale(1);
-}
-
-70%{
-transform:scale(1.05);
-}
-
-100%{
-transform:scale(1);
-}
+0%{transform:scale(1);}
+70%{transform:scale(1.05);}
+100%{transform:scale(1);}
 
 }
+
+
 
 .animate-fade{
 opacity:0;
 animation:fadeInUp 1.2s ease forwards;
 }
 
-.delay-1{
-animation-delay:0.5s;
-}
 
-.delay-2{
-animation-delay:1.5s;
-}
 
-.delay-3{
-animation-delay:2.5s;
-}
+.delay-1{animation-delay:0.5s;}
+.delay-2{animation-delay:1.5s;}
+.delay-3{animation-delay:2.5s;}
+
 
 
 /* --- HALAMAN 3 --- */
 
 .page-3{
-    width:100%;
-    margin:0;
-    padding:0;
+
+width:100%;
+
+margin:0;
+padding:0;
+
 }
+
+
 
 .page-3 img{
-    width:100%;
-    height:auto;
-    display:block;
-}
 
+width:100%;
+height:auto;
+
+display:block;
+
+}

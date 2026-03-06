@@ -53,23 +53,22 @@ line-height:1.2;
 p{
 
 font-family:'Montserrat',sans-serif;
-
 color:#5d467c;
 
 font-size:11px;
 
 letter-spacing:2px;
-
 text-transform:uppercase;
 
 }
 
 
 
+/* --- BUTTON --- */
+
 .btn{
 
 margin-top:45px;
-
 padding:12px 30px;
 
 background-color:#889149;
@@ -105,23 +104,18 @@ display:none !important;
 .main-page{
 
 position:relative;
-
 width:100%;
 
 min-height:100vh;
 
 background-image:url('background-halaman-2.png');
-
 background-size:cover;
-
 background-position:center;
 
 overflow:hidden;
 
 display:flex;
-
 justify-content:center;
-
 align-items:flex-start;
 
 text-align:center;
@@ -133,17 +127,17 @@ text-align:center;
 .inner-content{
 
 z-index:10;
-
 margin-top:8vh;
 
 }
 
 
 
+/* --- NAMA HALAMAN 2 --- */
+
 .nama-horizontal{
 
 font-family:'Great Vibes',cursive !important;
-
 color:#5d467c;
 
 font-size:55px;
@@ -152,8 +146,9 @@ white-space:nowrap;
 
 margin:0;
 
-opacity:0;
+font-weight:normal;
 
+opacity:0;
 transform:translateY(30px);
 
 transition:all 1.5s ease 0.5s;
@@ -161,6 +156,8 @@ transition:all 1.5s ease 0.5s;
 }
 
 
+
+/* --- TANGGAL --- */
 
 .date-page{
 
@@ -172,12 +169,11 @@ letter-spacing:5px;
 
 color:#5d467c;
 
-font-weight:400;
+font-weight:400 !important;
 
 margin-top:5px;
 
 opacity:0;
-
 transform:translateY(20px);
 
 transition:all 1.5s ease 1s;
@@ -188,11 +184,12 @@ text-transform:uppercase;
 
 
 
+/* --- ANIMASI MASUK --- */
+
 .show-anim .show-anim-text,
 .show-anim .date-page{
 
 opacity:1;
-
 transform:translateY(0);
 
 }
@@ -204,7 +201,6 @@ transform:translateY(0);
 .petal{
 
 position:absolute;
-
 top:-10vh;
 
 z-index:5;
@@ -231,7 +227,7 @@ transform:translateY(110vh) rotate(360deg);
 
 
 
-/* --- ANIMASI --- */
+/* --- ANIMASI UMUM --- */
 
 @keyframes fadeInUp{
 
@@ -293,4 +289,3 @@ height:auto;
 display:block;
 
 }
-

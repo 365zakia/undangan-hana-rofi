@@ -19,6 +19,10 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .content {
@@ -59,36 +63,41 @@ p {
     animation: fadeInUp 1.2s ease 3.5s forwards, pulse-animation 2s infinite 4.7s;
 }
 
-/* --- HALAMAN 2: MAIN PAGE --- */
+/* --- STRUKTUR HALAMAN --- */
 .hidden {
     display: none !important;
 }
 
 .main-page {
-    position: relative;
     width: 100%;
-    height: 100vh;
+}
+
+.page-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+/* HALAMAN 2 */
+.page-2 {
     background-image: url('background-halaman-2.png');
     background-size: cover;
     background-position: center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Konten mulai dari atas */
-    text-align: center;
+    align-items: flex-start;
 }
 
 .inner-content {
     z-index: 10;
-    margin-top: 8vh; /* DIKEATASIN LAGI (Ubah ke 5vh jika ingin lebih tinggi lagi) */
+    margin-top: 8vh;
 }
 
-/* Styling Nama Horizontal di Halaman 2 */
 .nama-horizontal {
     font-family: 'Great Vibes', cursive !important;
     color: #5d467c;
-    font-size: 55px; /* Ukuran disesuaikan agar pas ke samping */
-    white-space: nowrap; /* Mencegah teks turun ke bawah */
+    font-size: 55px;
+    white-space: nowrap;
     margin: 0;
     opacity: 0;
     transform: translateY(30px);
@@ -108,19 +117,40 @@ p {
     text-transform: uppercase;
 }
 
-/* Trigger Animasi */
-.show-anim .show-anim-text,
+/* HALAMAN 3 (AYAT) */
+.page-3 {
+    background-color: #ffffff;
+    align-items: center;
+    padding: 0;
+}
+
+.ayat-img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Biar gak kebesaran di tablet/laptop */
+    display: block;
+}
+
+/* --- ANIMASI & KONTROL --- */
+.show-anim .nama-horizontal,
 .show-anim .date-page {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* --- EFEK HUJAN BUNGA --- */
+#flower-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+}
+
 .petal {
     position: absolute;
     top: -10vh;
-    z-index: 5;
-    pointer-events: none;
     animation: fallRotation linear forwards;
 }
 
@@ -129,7 +159,6 @@ p {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* --- ANIMASI UMUM --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }

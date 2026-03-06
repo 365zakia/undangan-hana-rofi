@@ -27,8 +27,7 @@ body, html {
     margin-bottom: 85px;
 }
 
-/* Paksa Font Great Vibes untuk H1 */
-h1.nama, .show-anim-text {
+h1.nama {
     font-family: 'Great Vibes', cursive !important;
     color: #5d467c;
     font-size: 60px;
@@ -75,20 +74,25 @@ p {
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Mengatur teks ke atas */
+    align-items: flex-start; /* Konten mulai dari atas */
     text-align: center;
 }
 
 .inner-content {
     z-index: 10;
-    margin-top: 15vh; /* Mengatur tinggi posisi teks agar di antara bunga */
+    margin-top: 8vh; /* DIKEATASIN LAGI (Ubah ke 5vh jika ingin lebih tinggi lagi) */
 }
 
-.show-anim-text {
+/* Styling Nama Horizontal di Halaman 2 */
+.nama-horizontal {
+    font-family: 'Great Vibes', cursive !important;
+    color: #5d467c;
+    font-size: 55px; /* Ukuran disesuaikan agar pas ke samping */
+    white-space: nowrap; /* Mencegah teks turun ke bawah */
+    margin: 0;
     opacity: 0;
     transform: translateY(30px);
     transition: all 1.5s ease 0.5s;
-    margin: 0;
 }
 
 .date-page {
@@ -96,15 +100,15 @@ p {
     font-size: 14px;
     letter-spacing: 5px;
     color: #5d467c;
-    font-weight: 700; /* Tanggal Bold */
-    margin-top: 10px;
+    font-weight: 700;
+    margin-top: 5px;
     opacity: 0;
     transform: translateY(20px);
     transition: all 1.5s ease 1s;
     text-transform: uppercase;
 }
 
-/* Trigger Animasi Teks Muncul */
+/* Trigger Animasi */
 .show-anim .show-anim-text,
 .show-anim .date-page {
     opacity: 1;

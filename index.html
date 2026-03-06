@@ -29,7 +29,8 @@
         </div>
 
         <div class="page-3">
-            </div>
+            <img src="background-halaman-3.png" class="img-full" alt="Ar-Rum">
+        </div>
         
     </section>
 
@@ -37,9 +38,9 @@
         const openBtn = document.querySelector('.btn');
         const heroSection = document.querySelector('.hero');
         const mainSection = document.querySelector('#main-content');
+        const flowerContainer = document.getElementById('flower-container');
 
         openBtn.addEventListener('click', function() {
-            // Animasi Cover menghilang
             heroSection.style.opacity = '0';
             heroSection.style.transition = '0.8s';
             
@@ -47,10 +48,23 @@
                 heroSection.classList.add('hidden');
                 mainSection.classList.remove('hidden');
                 
-                // Picu animasi teks & hujan bunga
                 setTimeout(() => {
                     mainSection.classList.add('show-anim');
-                    setInterval(createPetal, 300);
+                    // Mulai hujan bunga
+                    const petalInterval = setInterval(createPetal, 300);
+
+                    // Berhenti hujan bunga saat di-scroll ke halaman 3
+                    window.addEventListener('scroll', function() {
+                        if (window.scrollY > window.innerHeight * 0.5) {
+                            clearInterval(petalInterval);
+                            document.getElementById('flower-container').style.opacity = '0';
+                            document.getElementById('flower-container').style.transition = '1s';
+                        } else {
+                            // Munculkan kembali jika scroll ke atas lagi (opsional)
+                            document.getElementById('flower-container').style.opacity = '1';
+                        }
+                    });
+
                 }, 100);
             }, 800);
         });

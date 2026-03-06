@@ -6,7 +6,6 @@ body, html {
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: #ffffff;
 }
 
 /* --- HALAMAN 1: HERO --- */
@@ -28,12 +27,13 @@ body, html {
     margin-bottom: 85px;
 }
 
-h1.nama {
+h1.nama, .nama-halaman2 {
     font-family: 'Great Vibes', cursive;
     color: #5d467c;
-    font-size: 60px;
+    font-size: 60px; /* Ukuran font sama dengan hal 1 */
     margin: 15px 0;
     font-weight: normal;
+    line-height: 1.2;
 }
 
 p {
@@ -68,30 +68,22 @@ p {
     position: relative;
     width: 100%;
     height: 100vh;
-    /* Foto bunga gabungan sebagai background statis */
     background-image: url('background-halaman-2.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Mengatur agar teks bisa naik ke atas */
     text-align: center;
 }
 
 .inner-content {
     z-index: 10;
-    /* Memberi sedikit bayangan putih halus di belakang teks agar mudah dibaca */
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 20px;
+    margin-top: 15vh; /* INI UNTUK MENAIKKAN TEKS. Ubah angkanya kalau mau lebih naik/turun */
 }
 
-.title-page {
-    font-family: 'Great Vibes', cursive;
-    font-size: 55px;
-    color: #5d467c;
-    margin: 0;
+.nama-halaman2 {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1.5s ease 0.5s;
@@ -99,17 +91,17 @@ p {
 
 .date-page {
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: 14px; /* Ukuran tanggal disesuaikan agar elegan */
     letter-spacing: 5px;
     color: #5d467c;
-    margin-top: 15px;
+    margin-top: 5px;
     opacity: 0;
     transform: translateY(20px);
     transition: all 1.5s ease 1s;
 }
 
-/* Trigger Animasi Teks */
-.show-anim .title-page,
+/* Trigger Animasi */
+.show-anim .nama-halaman2,
 .show-anim .date-page {
     opacity: 1;
     transform: translateY(0);
@@ -125,15 +117,11 @@ p {
 }
 
 @keyframes fallRotation {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-    }
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* --- ANIMASI TAMBAHAN --- */
+/* --- ANIMASI UMUM --- */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }

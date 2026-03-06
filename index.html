@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Hana & Rofi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <section class="hero">
         <div class="content">
             <p class="sub-title animate-fade delay-1">UNDANGAN PERNIKAHAN</p>
@@ -16,45 +17,66 @@
             <button class="btn">Buka Undangan</button>
         </div>
     </section>
+
     <section id="main-content" class="main-page hidden">
-    <img src="bunga-atas.png" class="deco-top anim-top" alt="decoration">
-
-    <div class="inner-content">
-        <h2 class="title-page anim-fade">Hana & Rofi</h2>
-        <p class="date-page anim-fade">04.04.2026</p>
-        
-        <div class="char-container anim-bottom">
-            <img src="bunga-bawah-karakter.png" class="char-img" alt="Hana Rofi">
+        <div id="flower-container"></div> <div class="inner-content">
+            <h2 class="title-page">Hana & Rofi</h2>
+            <p class="date-page">04.04.2026</p>
         </div>
-    </div>
-</section>
+    </section>
 
-<script>
-    const openBtn = document.querySelector('.btn');
-    const heroSection = document.querySelector('.hero');
-    const mainSection = document.querySelector('#main-content');
+    <script>
+        const openBtn = document.querySelector('.btn');
+        const heroSection = document.querySelector('.hero');
+        const mainSection = document.querySelector('#main-content');
 
-    openBtn.addEventListener('click', function() {
-        // 1. Hilangkan Cover (Hero)
-        heroSection.style.opacity = '0';
-        heroSection.style.transition = '0.8s';
-        
-        setTimeout(() => {
-            heroSection.classList.add('hidden');
+        openBtn.addEventListener('click', function() {
+            // 1. Efek transisi menghilang
+            heroSection.style.opacity = '0';
+            heroSection.style.transition = '0.8s';
             
-            // 2. Munculkan Halaman Utama
-            mainSection.classList.remove('hidden');
-            
-            // 3. Picu Animasi (Bunga & Karakter masuk)
             setTimeout(() => {
-                mainSection.classList.add('show-anim');
-            }, 100);
-        }, 800);
-    });
-</script>
+                heroSection.classList.add('hidden');
+                
+                // 2. Munculkan Halaman Utama
+                mainSection.classList.remove('hidden');
+                
+                // 3. Picu animasi teks & hujan bunga
+                setTimeout(() => {
+                    mainSection.classList.add('show-anim');
+                    setInterval(createPetal, 300); // Hujan bunga mulai
+                }, 100);
+            }, 800);
+        });
+
+        function createPetal() {
+            const container = document.getElementById('flower-container');
+            if (!container) return;
+
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            // Ukuran kelopak acak antara 15px - 35px
+            const size = Math.random() * 20 + 15; 
+            petal.innerHTML = `<img src="petal.png" style="width:${size}px; height:auto;">`;
+            
+            // Posisi horisontal acak
+            petal.style.left = Math.random() * 100 + 'vw';
+            
+            // Durasi jatuh acak 5-10 detik
+            const duration = Math.random() * 5 + 5 + 's';
+            petal.style.animationDuration = duration;
+            
+            // Transparansi acak
+            petal.style.opacity = Math.random() * 0.7 + 0.3;
+
+            container.appendChild(petal);
+
+            // Hapus elemen setelah jatuh agar tidak berat
+            setTimeout(() => {
+                petal.remove();
+            }, 10000);
+        }
+    </script>
 </body>
-
 </html>
-
-
-

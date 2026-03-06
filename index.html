@@ -21,15 +21,15 @@
     <section id="main-content" class="main-page hidden">
         <div id="flower-container"></div> 
         
-        <div class="page-section page-2">
+        <div class="halaman-dua">
             <div class="inner-content">
                 <h1 class="nama-horizontal show-anim-text">Hana & Rofi</h1>
                 <p class="date-page">04.04.2026</p>
             </div>
         </div>
 
-        <div class="page-section page-3">
-             <img src="background-halaman-3.png" class="ayat-img" alt="Ar-Rum 21">
+        <div class="halaman-tiga">
+             <img src="background-halaman-3.png" class="ayat-img">
         </div>
     </section>
 
@@ -37,7 +37,6 @@
         const openBtn = document.querySelector('.btn');
         const heroSection = document.querySelector('.hero');
         const mainSection = document.querySelector('#main-content');
-        let petalInterval;
 
         openBtn.addEventListener('click', function() {
             heroSection.style.opacity = '0';
@@ -49,20 +48,18 @@
                 
                 setTimeout(() => {
                     mainSection.classList.add('show-anim');
-                    // Jalankan kelopak bunga
-                    petalInterval = setInterval(createPetal, 300);
+                    setInterval(createPetal, 300);
                 }, 100);
             }, 800);
         });
 
-        // Kontrol kelopak agar berhenti di Halaman 3
+        // Kodingan agar petal berhenti saat scroll ke bawah
         window.addEventListener('scroll', function() {
-            const flowerContainer = document.getElementById('flower-container');
+            const container = document.getElementById('flower-container');
             if (window.scrollY > window.innerHeight * 0.7) {
-                flowerContainer.style.opacity = '0';
-                flowerContainer.style.transition = '0.5s';
+                container.style.display = 'none';
             } else {
-                flowerContainer.style.opacity = '1';
+                container.style.display = 'block';
             }
         });
 

@@ -1,81 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Hana & Rofi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Hana & Rofi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-    <section class="hero">
-        <div class="content">
-            <p class="sub-title animate-fade delay-1">UNDANGAN PERNIKAHAN</p>
-            <h1 class="nama animate-fade delay-2">Hana<br>&<br>Rofi</h1>
-            <p class="invite-text animate-fade delay-3">MENGUNDANG ANDA UNTUK HADIR<br>PADA PERNIKAHAN KAMI</p>
-            <button class="btn">Buka Undangan</button>
-        </div>
-    </section>
+<!-- HALAMAN 1 -->
+<section class="hero">
+    <div class="content">
+        <p class="sub-title animate-fade delay-1">UNDANGAN PERNIKAHAN</p>
 
-    <section id="main-content" class="main-page hidden">
-        <div id="flower-container"></div> 
-        
-        <div class="halaman-dua">
-            <div class="inner-content">
-                <h1 class="nama-horizontal show-anim-text">Hana & Rofi</h1>
-                <p class="date-page">04.04.2026</p>
-            </div>
-        </div>
+        <h1 class="nama animate-fade delay-2">
+            Hana<br>&<br>Rofi
+        </h1>
 
-        <div class="halaman-tiga">
-             <img src="background-halaman-3.png" class="ayat-img">
-        </div>
-    </section>
+        <p class="invite-text animate-fade delay-3">
+            MENGUNDANG ANDA UNTUK HADIR<br>
+            PADA PERNIKAHAN KAMI
+        </p>
 
-    <script>
-        const openBtn = document.querySelector('.btn');
-        const heroSection = document.querySelector('.hero');
-        const mainSection = document.querySelector('#main-content');
+        <button class="btn">Buka Undangan</button>
+    </div>
+</section>
 
-        openBtn.addEventListener('click', function() {
-            heroSection.style.opacity = '0';
-            heroSection.style.transition = '0.8s';
-            
-            setTimeout(() => {
-                heroSection.classList.add('hidden');
-                mainSection.classList.remove('hidden');
-                
-                setTimeout(() => {
-                    mainSection.classList.add('show-anim');
-                    setInterval(createPetal, 300);
-                }, 100);
-            }, 800);
-        });
 
-        // Kodingan agar petal berhenti saat scroll ke bawah
-        window.addEventListener('scroll', function() {
-            const container = document.getElementById('flower-container');
-            if (window.scrollY > window.innerHeight * 0.7) {
-                container.style.display = 'none';
-            } else {
-                container.style.display = 'block';
-            }
-        });
+<!-- HALAMAN 2 -->
+<section id="main-content" class="main-page hidden">
 
-        function createPetal() {
-            const container = document.getElementById('flower-container');
-            if (!container) return;
-            const petal = document.createElement('div');
-            petal.classList.add('petal');
-            const size = Math.random() * 20 + 15; 
-            petal.innerHTML = `<img src="petal.png" style="width:${size}px; height:auto;">`;
-            petal.style.left = Math.random() * 100 + 'vw';
-            petal.style.animationDuration = Math.random() * 5 + 5 + 's';
-            petal.style.opacity = Math.random() * 0.7 + 0.3;
-            container.appendChild(petal);
-            setTimeout(() => { petal.remove(); }, 10000);
-        }
-    </script>
+<div id="flower-container"></div>
+
+<div class="inner-content">
+
+<h1 class="nama-horizontal show-anim-text">
+Hana & Rofi
+</h1>
+
+<p class="date-page">
+04.04.2026
+</p>
+
+</div>
+
+</section>
+
+
+<!-- HALAMAN 3 -->
+<section class="page-3">
+
+<div class="page3-container">
+
+<img src="background-halaman-3.png" alt="Ayat Pernikahan">
+
+</div>
+
+</section>
+
+
+<script>
+
+const openBtn = document.querySelector('.btn');
+const heroSection = document.querySelector('.hero');
+const mainSection = document.querySelector('#main-content');
+
+openBtn.addEventListener('click', function() {
+
+heroSection.style.opacity = '0';
+heroSection.style.transition = '0.8s';
+
+setTimeout(() => {
+
+heroSection.classList.add('hidden');
+mainSection.classList.remove('hidden');
+
+setTimeout(() => {
+
+mainSection.classList.add('show-anim');
+setInterval(createPetal, 300);
+
+}, 100);
+
+}, 800);
+
+});
+
+
+function createPetal(){
+
+const container = document.getElementById('flower-container');
+if(!container) return;
+
+const petal = document.createElement('div');
+petal.classList.add('petal');
+
+const size = Math.random() * 20 + 15;
+
+petal.innerHTML =
+`<img src="petal.png" style="width:${size}px;height:auto;">`;
+
+petal.style.left = Math.random() * 100 + 'vw';
+
+petal.style.animationDuration =
+Math.random() * 5 + 5 + 's';
+
+petal.style.opacity =
+Math.random() * 0.7 + 0.3;
+
+container.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},10000);
+
+}
+
+</script>
+
 </body>
 </html>

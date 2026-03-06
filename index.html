@@ -21,10 +21,16 @@
     <section id="main-content" class="main-page hidden">
         <div id="flower-container"></div> 
         
-        <div class="inner-content">
-            <h1 class="nama-horizontal show-anim-text">Hana & Rofi</h1>
-            <p class="date-page">04.04.2026</p>
+        <div class="inner-content-wrapper">
+            <div class="inner-content">
+                <h1 class="nama-horizontal show-anim-text">Hana & Rofi</h1>
+                <p class="date-page">04.04.2026</p>
+            </div>
         </div>
+
+        <div class="page-3">
+            </div>
+        
     </section>
 
     <script>
@@ -33,6 +39,7 @@
         const mainSection = document.querySelector('#main-content');
 
         openBtn.addEventListener('click', function() {
+            // Animasi Cover menghilang
             heroSection.style.opacity = '0';
             heroSection.style.transition = '0.8s';
             
@@ -40,6 +47,7 @@
                 heroSection.classList.add('hidden');
                 mainSection.classList.remove('hidden');
                 
+                // Picu animasi teks & hujan bunga
                 setTimeout(() => {
                     mainSection.classList.add('show-anim');
                     setInterval(createPetal, 300);

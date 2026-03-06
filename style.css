@@ -19,10 +19,6 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
 }
 
 .content {
@@ -63,29 +59,27 @@ p {
     animation: fadeInUp 1.2s ease 3.5s forwards, pulse-animation 2s infinite 4.7s;
 }
 
-/* --- STRUKTUR HALAMAN --- */
+/* --- HALAMAN UTAMA --- */
 .hidden {
     display: none !important;
 }
 
 .main-page {
+    position: relative;
     width: 100%;
-}
-
-.page-section {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    text-align: center;
 }
 
 /* HALAMAN 2 */
-.page-2 {
+.halaman-dua {
+    height: 100vh;
+    width: 100%;
     background-image: url('background-halaman-2.png');
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
+    text-align: center;
 }
 
 .inner-content {
@@ -117,21 +111,19 @@ p {
     text-transform: uppercase;
 }
 
-/* HALAMAN 3 (AYAT) */
-.page-3 {
+/* HALAMAN 3 */
+.halaman-tiga {
+    width: 100%;
     background-color: #ffffff;
-    align-items: center;
-    padding: 0;
 }
 
 .ayat-img {
     width: 100%;
-    height: auto;
-    max-width: 500px; /* Biar gak kebesaran di tablet/laptop */
     display: block;
+    height: auto;
 }
 
-/* --- ANIMASI & KONTROL --- */
+/* --- ANIMASI --- */
 .show-anim .nama-horizontal,
 .show-anim .date-page {
     opacity: 1;
@@ -145,7 +137,7 @@ p {
     width: 100%;
     height: 100vh;
     pointer-events: none;
-    z-index: 50;
+    z-index: 5;
 }
 
 .petal {

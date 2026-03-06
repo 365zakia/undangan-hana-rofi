@@ -7,12 +7,11 @@
 <title>Undangan Hana & Rofi</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-
 
 <!-- HALAMAN 1 -->
 
@@ -38,6 +37,7 @@ Buka Undangan
 </button>
 
 </div>
+
 </section>
 
 
@@ -66,7 +66,7 @@ Hana & Rofi
 
 <!-- HALAMAN 3 -->
 
-<section class="page-3">
+<section class="page-3 hidden">
 
 <img src="background-halaman-3.png" alt="Ayat Pernikahan">
 
@@ -79,6 +79,7 @@ Hana & Rofi
 const openBtn = document.querySelector('.btn');
 const heroSection = document.querySelector('.hero');
 const mainSection = document.querySelector('#main-content');
+const page3 = document.querySelector('.page-3');
 
 let petalInterval;
 
@@ -92,7 +93,9 @@ heroSection.style.transition = '0.8s';
 setTimeout(() => {
 
 heroSection.classList.add('hidden');
+
 mainSection.classList.remove('hidden');
+page3.classList.remove('hidden');
 
 setTimeout(() => {
 
@@ -143,10 +146,6 @@ petal.remove();
 
 window.addEventListener("scroll",function(){
 
-const page3 = document.querySelector(".page-3");
-
-if(!page3) return;
-
 const page3Top = page3.offsetTop;
 
 if(window.scrollY >= page3Top - 200){
@@ -157,9 +156,7 @@ clearInterval(petalInterval);
 
 });
 
-
 </script>
-
 
 </body>
 </html>

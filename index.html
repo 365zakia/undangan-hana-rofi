@@ -19,8 +19,10 @@
     </section>
 
     <section id="main-content" class="main-page hidden">
-        <div id="flower-container"></div> <div class="inner-content">
-            <h2 class="title-page">Hana & Rofi</h2>
+        <div id="flower-container"></div> 
+        
+        <div class="inner-content">
+            <h1 class="nama-halaman2">Hana<br>&<br>Rofi</h1>
             <p class="date-page">04.04.2026</p>
         </div>
     </section>
@@ -31,20 +33,16 @@
         const mainSection = document.querySelector('#main-content');
 
         openBtn.addEventListener('click', function() {
-            // 1. Efek transisi menghilang
             heroSection.style.opacity = '0';
             heroSection.style.transition = '0.8s';
             
             setTimeout(() => {
                 heroSection.classList.add('hidden');
-                
-                // 2. Munculkan Halaman Utama
                 mainSection.classList.remove('hidden');
                 
-                // 3. Picu animasi teks & hujan bunga
                 setTimeout(() => {
                     mainSection.classList.add('show-anim');
-                    setInterval(createPetal, 300); // Hujan bunga mulai
+                    setInterval(createPetal, 300);
                 }, 100);
             }, 800);
         });
@@ -52,30 +50,15 @@
         function createPetal() {
             const container = document.getElementById('flower-container');
             if (!container) return;
-
             const petal = document.createElement('div');
             petal.classList.add('petal');
-            
-            // Ukuran kelopak acak antara 15px - 35px
             const size = Math.random() * 20 + 15; 
             petal.innerHTML = `<img src="petal.png" style="width:${size}px; height:auto;">`;
-            
-            // Posisi horisontal acak
             petal.style.left = Math.random() * 100 + 'vw';
-            
-            // Durasi jatuh acak 5-10 detik
-            const duration = Math.random() * 5 + 5 + 's';
-            petal.style.animationDuration = duration;
-            
-            // Transparansi acak
+            petal.style.animationDuration = Math.random() * 5 + 5 + 's';
             petal.style.opacity = Math.random() * 0.7 + 0.3;
-
             container.appendChild(petal);
-
-            // Hapus elemen setelah jatuh agar tidak berat
-            setTimeout(() => {
-                petal.remove();
-            }, 10000);
+            setTimeout(() => { petal.remove(); }, 10000);
         }
     </script>
 </body>

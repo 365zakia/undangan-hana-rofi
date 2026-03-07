@@ -80,12 +80,12 @@ Hana & Rofi
 
 <div class="page4-content">
 
-<p class="invite-text-page4 animate-up delay-1">
+<p class="invite-text-page4 anim-page4">
 Kami mengundang Bapak/Ibu/Saudara/i untuk hadir ke acara pernikahan kami :
 </p>
 
 
-<div class="couple bride animate-up delay-2">
+<div class="couple bride anim-page4">
 
 <img src="hana.png" class="couple-photo">
 
@@ -103,12 +103,12 @@ dan Ibu Kristiana Irda M
 </div>
 
 
-<div class="and animate-up delay-3">
+<div class="and anim-page4">
 &
 </div>
 
 
-<div class="couple groom animate-up delay-4">
+<div class="couple groom anim-page4">
 
 <div class="couple-text">
 
@@ -202,13 +202,21 @@ petal.remove();
 }
 
 
+
 window.addEventListener("scroll",function(){
 
 const page3Top = page3.offsetTop;
+const page4Top = page4.offsetTop;
 
 if(window.scrollY >= page3Top - 200){
 
 clearInterval(petalInterval);
+
+}
+
+if(window.scrollY >= page4Top - 300){
+
+page4.classList.add("show-page4");
 
 }
 

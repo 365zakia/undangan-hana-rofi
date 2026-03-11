@@ -57,7 +57,6 @@
     <section class="page-5 hidden">
         <div class="event-container">
             <img src="floral-frame.png" class="floral-frame">
-
             <div class="event-wrapper">
                 <div class="event anim-page5">
                     <h2 class="event-title">Akad Nikah</h2>
@@ -124,19 +123,18 @@
         }
 
         window.addEventListener("scroll", function() {
-            const page3Top = page3.offsetTop;
-            const page4Top = page4.offsetTop;
-            const page5Top = page5.offsetTop;
+            if (!page3 || !page4 || !page5) return;
 
-            if(window.scrollY >= page3Top - 200){
+            if(window.scrollY >= page3.offsetTop - 200){
                 clearInterval(petalInterval);
             }
 
-            if(window.scrollY >= page4Top - 300){
+            // Memperbaiki deteksi scroll untuk animasi
+            if(window.scrollY >= page4.offsetTop - 500){
                 page4.classList.add("show-page4");
             }
 
-            if(window.scrollY >= page5Top - 400){
+            if(window.scrollY >= page5.offsetTop - 500){
                 page5.classList.add("show-page5");
             }
         });

@@ -291,108 +291,79 @@ p{
 }
 
 /* ========================= */
-/* HALAMAN UCAPAN TAMU */
 /* ========================= */
-
-.wishes-section{
-
-width:100%;
-min-height:100vh;
-
-background-color:#f5f0fa;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-text-align:center;
-
-padding:80px 20px;
-
+/* HALAMAN UCAPAN TAMU - CLEAN */
+/* ========================= */
+.wishes-section {
+    width: 100%;
+    /* Menghapus background ungu, shadow, dan border agar menyatu */
+    background-color: #ffffff; /* Pakai putih bersih */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    
+    /* Sesuaikan padding: atas tetap, samping sesuai desain, bawah rapat */
+    padding: 80px 20px 0 20px; 
 }
 
-.wishes-section h2{
-
-font-family:'Great Vibes',cursive;
-font-size:42px;
-color:#5d467c;
-
-margin-bottom:40px;
-
+.wishes-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #5d467c;
+    margin-bottom: 40px;
+    font-weight: normal;
 }
 
-#wish-form{
-
-display:flex;
-flex-direction:column;
-align-items:center;
-
-width:100%;
-max-width:400px;
-
+#wish-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
 }
 
 #wish-form input,
-#wish-form textarea{
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:15px;
-
-border-radius:8px;
-border:1px solid #ddd;
-
-font-family:'Montserrat',sans-serif;
-font-size:14px;
-
+#wish-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }
 
-#wish-form textarea{
-
-min-height:120px;
-resize:none;
-
+#wish-form textarea {
+    min-height: 120px;
+    resize: none;
 }
 
-#wish-form button{
-
-background:#6c5a8c;
-
-color:white;
-
-border:none;
-
-padding:12px 30px;
-
-border-radius:8px;
-
-font-family:'Montserrat',sans-serif;
-font-size:14px;
-font-weight:700;
-
-cursor:pointer;
-
-transition:0.3s;
-
+#wish-form button {
+    background: #6c5a8c;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-#wish-form button:hover{
-
-transform:scale(1.05);
-
+#wish-form button:hover {
+    transform: scale(1.05);
 }
 
-#status{
-
-margin-top:15px;
-
-font-family:'Montserrat',sans-serif;
-
-font-size:13px;
-
-color:#5d467c;
-
+#status {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: #5d467c;
+    font-weight: 700;
+    min-height: 20px;
 }

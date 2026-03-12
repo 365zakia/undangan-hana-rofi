@@ -134,36 +134,51 @@ window.addEventListener("scroll", function() {
     if(window.scrollY >= page5.offsetTop - 400) page5.classList.add("show-page5");
 });
 
-// SCRIPT PENGIRIMAN UCAPAN (HANYA SATU)
+/* ========================= */
+/* SCRIPT UCAPAN TAMU - FINAL FIX */
+/* ========================= */
 const form = document.getElementById("wish-form");
 const statusTxt = document.getElementById("status");
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    statusTxt.innerText = "Sedang mengirim...";
-    
-    const nama = document.getElementById("nama").value;
-    const ucapan = document.getElementById("ucapan").value;
-    
-    const formData = new FormData();
-    formData.append("nama", nama);
-    formData.append("ucapan", ucapan);
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        statusTxt.innerText = "Sedang mengirim...";
+        
+        const nama = document.getElementById("nama").value;
+        const ucapan = document.getElementById("ucapan").value;
+        
+        // Memakai URLSearchParams agar data dikirim sebagai form-data (bukan JSON)
+        // Cara ini paling ampuh untuk menghindari error CORS di Google Apps Script
+        const scriptURL = "https://script.google.com/macros/s/AKfycbyRi120H_uIBF5aMlACOzlHmNo2x981SIaVAPkjANDAHjVPaWgt4eN10-lB2rNZ9vWd/exec";
+        
+        const requestBody = new URLSearchParams();
+        requestBody.append("nama", nama);
+        requestBody.append("ucapan", ucapan);
 
-    // PASTIKAN URL INI ADALAH URL DEPLOY TERBARU
-    fetch("https://script.google.com/macros/s/AKfycbyRi120H_uIBF5aMlACOzlHmNo2x981SIaVAPkjANDAHjVPaWgt4eN10-lB2rNZ9vWd/exec", {
-        method: "POST",
-        body: formData
-    })
-    .then(() => {
-        statusTxt.innerText = "Ucapan berhasil dikirim ❤️";
-        form.reset();
-    })
-    .catch(err => {
-        console.error(err);
-        statusTxt.innerText = "Gagal mengirim, coba lagi nanti.";
+        fetch(scriptURL, {
+            method: "POST",
+            mode: "no-cors", // Penting untuk bypass aturan keamanan browser di GitHub Pages
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: requestBody
+        })
+        .then(() => {
+            // Karena pakai no-cors, kita tidak bisa baca response suksesnya,
+            // tapi request biasanya tetap sampai ke Google Sheets.
+            statusTxt.innerText = "Ucapan berhasil dikirim ❤️";
+            form.reset();
+        })
+        .catch(err => {
+            console.error(err);
+            statusTxt.innerText = "Gagal mengirim, coba lagi nanti.";
+        });
     });
-});
+}
 </script>
 
 </body>
 </html>
+

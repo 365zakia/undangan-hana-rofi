@@ -91,6 +91,7 @@
 </audio>
 
 <script>
+// KONFIGURASI TOMBOL BUKA & ANIMASI
 const openBtn = document.querySelector('.btn');
 const heroSection = document.querySelector('.hero');
 const mainSection = document.querySelector('#main-content');
@@ -106,10 +107,7 @@ openBtn.addEventListener('click', function() {
     heroSection.style.transition = '0.8s';
     setTimeout(() => {
         heroSection.classList.add('hidden');
-        mainSection.classList.remove('hidden');
-        page3.classList.remove('hidden');
-        page4.classList.remove('hidden');
-        page5.classList.remove('hidden');
+        [mainSection, page3, page4, page5].forEach(el => el.classList.remove('hidden'));
         setTimeout(() => {
             mainSection.classList.add('show-anim');
             petalInterval = setInterval(createPetal, 300);
@@ -132,17 +130,11 @@ function createPetal(){
 }
 
 window.addEventListener("scroll", function() {
-    const page3Top = page3.offsetTop;
-    const page4Top = page4.offsetTop;
-    const page5Top = page5.offsetTop;
-    if(window.scrollY >= page3Top - 200){ clearInterval(petalInterval); }
-    if(window.scrollY >= page4Top - 300){ page4.classList.add("show-page4"); }
-    if(window.scrollY >= page5Top - 400){ page5.classList.add("show-page5"); }
+    if(window.scrollY >= page4.offsetTop - 300) page4.classList.add("show-page4");
+    if(window.scrollY >= page5.offsetTop - 400) page5.classList.add("show-page5");
 });
 
-/* ========================= */
-/* SCRIPT UCAPAN TAMU - FIXED */
-/* ========================= */
+// SCRIPT PENGIRIMAN UCAPAN (HANYA SATU)
 const form = document.getElementById("wish-form");
 const statusTxt = document.getElementById("status");
 
@@ -157,12 +149,12 @@ form.addEventListener("submit", function(e){
     formData.append("nama", nama);
     formData.append("ucapan", ucapan);
 
-    // Ganti URL ini dengan URL Web App dari hasil Deploy Google Apps Script terbaru
+    // PASTIKAN URL INI ADALAH URL DEPLOY TERBARU
     fetch("https://script.google.com/macros/s/AKfycbyRi120H_uIBF5aMlACOzlHmNo2x981SIaVAPkjANDAHjVPaWgt4eN10-lB2rNZ9vWd/exec", {
         method: "POST",
         body: formData
     })
-    .then(res => {
+    .then(() => {
         statusTxt.innerText = "Ucapan berhasil dikirim ❤️";
         form.reset();
     })

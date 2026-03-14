@@ -271,7 +271,6 @@ p {
     position: relative;
     padding-top: 80px;
     padding-bottom: 200px;
-    background-color: #b9a3c9;
 }
 
 /* container utama */
@@ -485,6 +484,7 @@ p {
     color:#6c5a8c;
     margin-bottom:40px;
     opacity:0;
+    font-weight: normal;
 }
 
 /* animasi judul */
@@ -506,7 +506,7 @@ p {
 /* container frame ucapan */
 .ucapan-wrapper{
     position:relative;
-    width:340px;
+    width:420px;
     opacity:0;
 }
 
@@ -535,8 +535,8 @@ p {
 .petal-ucapan{
     position:absolute;
     width:55px;
-    left:-15px;
-    top:95px;
+    left:10px;
+    top:120px;
     animation:petalPulse 2.5s infinite;
 }
 

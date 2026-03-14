@@ -287,8 +287,8 @@ p {
 /* floral frame */
 .floral-frame {
     position: relative;
-    top: -40px;
-    width: 100%;
+    top: -50px;
+    width: 105%;
     z-index: 2;
     pointer-events: none;
     opacity: 0;
@@ -343,11 +343,11 @@ p {
 }
 
 /* lokasi */
-.location { margin-top: 25px; }
+.location { margin-top: 20px; }
 
 .location-icon {
     width: 55px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .location-text {
@@ -355,7 +355,7 @@ p {
     font-size: 11px;
     letter-spacing: 1px;
     color: #5d467c;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     line-height: 1.5;
 }

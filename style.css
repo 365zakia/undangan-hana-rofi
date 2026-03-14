@@ -458,3 +458,135 @@ p {
     font-size: 13px;
     color: #5d467c;
 }
+
+/* ========================= */
+/* HALAMAN 6 : DOA & UCAPAN */
+/* ========================= */
+
+.wishes-section{
+    width:100%;
+    min-height:100vh;
+    background-image:url('background-halaman-6.png');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:120px 20px;
+}
+
+/* judul */
+.title-wish{
+    font-family:'Great Vibes', cursive;
+    font-size:45px;
+    color:#6c5a8c;
+    margin-bottom:50px;
+    opacity:0;
+}
+
+/* frame amplop */
+.amplop-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+    opacity:0;
+}
+
+.frame-amplop{
+    width:340px;
+    transform:rotate(-4deg);
+}
+
+/* frame form */
+.form-wrapper{
+    position:relative;
+    width:340px;
+    opacity:0;
+}
+
+.form-bg{
+    width:100%;
+    transform:rotate(-5deg);
+}
+
+/* posisi form di atas gambar */
+.form-wrapper #wish-form{
+    position:absolute;
+    top:45px;
+    left:45px;
+    width:72%;
+    display:flex;
+    flex-direction:column;
+}
+
+/* style input */
+#wish-form input,
+#wish-form textarea{
+    background:#d8d6cf;
+    border:none;
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+/* tombol kirim */
+.btn-kirim{
+    align-self:flex-end;
+    background:#6c5a8c;
+    color:white;
+    border:none;
+    padding:8px 22px;
+    border-radius:10px;
+    font-weight:700;
+    animation:pulse-animation 2s infinite;
+}
+
+/* animasi judul */
+.animate-wish{
+    animation:fadeUpWish 1.2s ease forwards;
+}
+
+@keyframes fadeUpWish{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* animasi amplop */
+.animate-amplop{
+    animation:fadeZoom 1.5s ease 0.6s forwards;
+}
+
+@keyframes fadeZoom{
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* animasi form */
+.animate-form{
+    animation:slideUpForm 1.4s ease 1s forwards;
+}
+
+@keyframes slideUpForm{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

@@ -651,26 +651,59 @@ p {
     margin: 5px 0;
 }
 
-.account-number-wrapper {
+/* --- CSS TAMBAHAN UNTUK NOMOR REKENING --- */
+
+.account-number-display {
+    cursor: pointer;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Nomor di atas, tulisan salin di bawah */
     align-items: center;
-    gap: 10px;
-    background: #f3f3f3;
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
+    gap: 5px; /* Jarak antara nomor dan tulisan salin */
+    margin-top: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
 }
 
-.btn-copy {
-    background: #5d467c;
-    color: white;
-    border: none;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 10px;
-    cursor: pointer;
+#norek {
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #5d467c;
+    letter-spacing: 1.5px;
+}
+
+#copy-toast {
+    background: #f0edf5; /* Warna ungu muda lembut */
+    color: #5d467c;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 15px;
+    border-radius: 20px;
+    border: 1px solid #d1cadb;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efek saat nomor rekening disentuh/diklik */
+.account-number-display:active {
+    transform: scale(0.95);
+}
+
+/* Biar logo bank dan nama tidak terlalu rapat */
+.bank-logo {
+    width: 85px;
+    margin-bottom: 8px;
+}
+
+.account-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #5d467c;
+    margin-bottom: 0;
 }
 
 /* ANIMASI HALAMAN 7 */

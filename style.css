@@ -235,9 +235,11 @@ p {
     font-family: 'Montserrat', sans-serif; 
     font-size: 13px; 
     color: #f3eadb; 
-    margin-bottom: 40px; 
-    line-height: 1.6; 
-    font-weight: 400; 
+    margin-bottom: 40px;
+    margin-top: 115px;
+    text-transform: none; /* Biar nggak kapital semua */
+    font-weight: bold;
+    line-height: 1.6;  
 }
 
 .couple-main-wrapper { 
@@ -286,10 +288,11 @@ p {
 
 .couple-desc { 
     font-family: 'Montserrat', sans-serif; 
-    font-size: 11px; 
+    font-size: 15px; 
     color: #f3eadb; 
     line-height: 1.6; 
-    font-weight: 300; 
+    text-transform: none; /* Biar nggak kapital semua */
+    font-weight: bold; 
 }
 
 .and-symbol { 
@@ -440,9 +443,9 @@ p {
 .wishes-section {
     position: relative; 
     width: 100%; 
-    min-height: 100vh; 
+    min-height: 96vh; 
     background-image: url('background-halaman-6.png');
-    background-size: cover; 
+    background-size: contain; 
     background-position: center; 
     background-repeat: no-repeat;
     display: flex; 
@@ -450,18 +453,19 @@ p {
     justify-content: center; 
     align-items: flex-start;
     text-align: center; 
-    padding: 42px 37px;
+    padding: 0px 43px;
 }
 
 .title-wish { 
     font-family: 'Great Vibes', cursive; 
-    font-size: 45px; 
+    font-size: 50px; 
     color: #6c5a8c; 
-    margin-bottom: 40px; 
+    margin-bottom: -250px;
+    margin-top: 88px;
     opacity: 0; 
     font-weight: normal; 
     text-align: center; 
-    width: 100%; 
+    width: 82%; 
 }
 
 .anim-wish { 
@@ -491,21 +495,48 @@ p {
 }
 
 .frame-ucapan { 
-    width: 100%; 
+    width: 125%;
+    margin-left: -82px;
 }
 
+/* Aturan dasar untuk kedua bunga */
 .petal-ucapan { 
     position: absolute; 
-    left: -57px; 
-    top: 162px; 
-    width: 70px; 
+    width: 130px; 
     animation: petalPulse 2.5s infinite; 
+    z-index: 5; /* Pastikan di atas frame */
 }
 
+/* Posisi Bunga Kiri */
+.bunga-kiri {
+    left: -68px; 
+    top: 465px; 
+}
+
+/* Posisi Bunga Kanan */
+.bunga-kanan {
+    right: -68px; /* Pakai right biar nempel ke kanan */
+    top: 465px; 
+    transform: scaleX(-1); /* Efek cermin biar bunganya hadap ke dalam */
+}
+
+/* Animasi Pulse kamu tetap sama */
 @keyframes petalPulse { 
-    0% { transform: scale(1); } 
-    50% { transform: scale(1.08); } 
-    100% { transform: scale(1); } 
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+/* PENTING: Jika pakai transform di bunga-kanan, 
+   animasi pulse-nya perlu sedikit penyesuaian agar tidak bentrok */
+.bunga-kanan {
+    animation: petalPulseKanan 2.5s infinite;
+}
+
+@keyframes petalPulseKanan {
+    0% { transform: scaleX(-1) scale(1); }
+    50% { transform: scaleX(-1) scale(1.08); }
+    100% { transform: scaleX(-1) scale(1); }
 }
 
 .ucapan-wrapper #wish-form { 

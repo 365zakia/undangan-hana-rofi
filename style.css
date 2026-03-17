@@ -460,7 +460,7 @@ p {
     font-family: 'Great Vibes', cursive; 
     font-size: 50px; 
     color: #6c5a8c; 
-    margin-bottom: -170px;
+    margin-bottom: -130px;
     margin-top: 88px;
     opacity: 0; 
     font-weight: normal; 
@@ -517,7 +517,7 @@ p {
 
 /* Posisi Bunga Kanan */
 .bunga-kanan {
-    right: 34px; /* Pakai right biar nempel ke kanan */
+    right: 9px; /* Pakai right biar nempel ke kanan */
     top: 496px; 
     transform: scaleX(-1); /* Efek cermin biar bunganya hadap ke dalam */
 }
@@ -574,4 +574,7 @@ p {
     border-radius: 10px; 
     font-weight: 700; 
     cursor: pointer; 
+
+    animation: pulse-animation 2s infinite; 
+}
 }

@@ -816,135 +816,58 @@ p {
     line-height: 1.4;
 }
 
-/* ========================================= */
-/* ANIMASI KUPU-KUPU TERBANG MENYEBAR (HAL 1)*/
-/* ========================================= */
-
-.butterfly-spread {
+/* --- WADAH UTAMA --- */
+.butterfly-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Di atas background, di bawah daun */
+    z-index: 1;
+    overflow: hidden;
 }
 
-/* Base Style untuk Kupu-kupu 1 (::before) dan Kupu-kupu 2 (::after) */
-.butterfly-spread::before,
-.butterfly-spread::after {
-    content: "";
+/* --- ATURAN DASAR KUPU-KUPU --- */
+.butterfly {
     position: absolute;
-    width: 60px; /* Ukuran kupu-kupu watercolor */
-    height: 60px;
-    background-image: url('kupu-kupu.png'); /* File kupu-kupu watercolor kamu */
+    width: 40px; /* Ukuran lebih kecil biar kelihatan banyak dan jauh */
+    height: 40px;
+    background-image: url('kupu-kupu.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
     opacity: 0;
-    
-    /* Efek Glow Putih agar mencolok dan mewah */
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-    
-    /* Titik Awal: Di tengah bawah, dekat tombol Buka Undangan */
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1); /* Mulai dari sangat kecil (hinggap) */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+    /* Gerakan kepak sayap yang halus */
+    animation: flap 0.2s infinite alternate ease-in-out;
 }
 
-/* ========================================= */
-/* KUPU-KUPU 1: MENYEBAR KE KIRI ATAS      */
-/* ========================================= */
-.butterfly-spread::before {
-    animation: 
-        spreadFade 0.5s ease forwards 0.5s, /* Muncul perlahan */
-        spreadLeftWow 7s ease-out infinite 0.5s; /* Terbang & Muter */
-}
-
-/* ========================================= */
-/* KUPU-KUPU 2: MENYEBAR KE KANAN ATAS     */
-/* ========================================= */
-.butterfly-spread::after {
-    width: 50px; /* Sedikit lebih kecil */
-    animation: 
-        spreadFade 0.5s ease forwards 1.0s, /* Jeda muncul biar susul-susulan */
-        spreadRightWow 7s ease-out infinite 1.0s; /* Terbang & Muter */
-}
-
-/* ========================================= */
-/* KEYFRAMES LOGIKA GERAKAN MENYEBAR      */
-/* ========================================= */
-
-/* 1. Muncul (FadeIn & Scale) */
-@keyframes spreadFade {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
-    100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
-}
-
-/* 2. Rute Kupu-kupu 1: Menyebar ke KIRI ATAS (Wow) */
-@keyframes spreadLeftWow {
+/* --- ANIMASI TERBANG MENYEBAR (SMOOTH TOTAL) --- */
+@keyframes flyAcross {
     0% {
-        top: 70%;
-        left: 50%;
-        transform: rotate(0deg); /* Hinggap */
+        opacity: 0;
+        transform: translate3d(var(--startX), var(--startY), 0) rotate(0deg);
     }
-    15% {
-        top: 60%;
-        left: 40%;
-        transform: rotate(-15deg); /* Mulai terbang nanjak */
-    }
-    40% {
-        top: 30%;
-        left: 10%;
-        transform: rotate(10deg); /* Meliuk di kiri atas */
-    }
-    60% {
-        top: 10%;
-        left: 30%;
-        transform: rotate(-5deg); /* Muter di pojok kiri atas */
-    }
-    80% {
-        top: 20%;
-        left: -15%;
-        transform: rotate(-10deg); /* Keluar layar kiri */
-    }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
     100% {
-        top: 20%;
-        left: -15%;
-        transform: rotate(-10deg); /* Sembunyi */
+        opacity: 0;
+        transform: translate3d(var(--endX), var(--endY), 0) rotate(var(--rot));
     }
 }
 
-/* 3. Rute Kupu-kupu 2: Menyebar ke KANAN ATAS (Wow) */
-@keyframes spreadRightWow {
-    0% {
-        top: 70%;
-        left: 50%;
-        transform: rotate(0deg); /* Hinggap */
-    }
-    15% {
-        top: 60%;
-        left: 60%;
-        transform: rotate(15deg); /* Mulai terbang nanjak */
-    }
-    40% {
-        top: 35%;
-        left: 85%;
-        transform: rotate(-10deg); /* Meliuk di kanan atas */
-    }
-    60% {
-        top: 15%;
-        left: 70%;
-        transform: rotate(5deg); /* Muter di pojok kanan atas */
-    }
-    80% {
-        top: 25%;
-        left: 115%;
-        transform: rotate(10deg); /* Keluar layar kanan */
-    }
-    100% {
-        top: 25%;
-        left: 115%;
-        transform: rotate(10deg); /* Sembunyi */
-    }
+/* --- ANIMASI KEPAK SAYAP --- */
+@keyframes flap {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0.3); }
 }
+
+/* --- PENGATURAN TIAP KUPU-KUPU (VARIASI RUTE) --- */
+/* Kita atur posisi awal di tengah, lalu menyebar ke arah berbeda */
+
+.b1 { --startX: 50vw; --startY: 70vh; --endX: -10vw; --endY: 10vh; --rot: -45deg; animation: flyAcross 12s linear infinite, flap 0.2s infinite alternate; animation-delay: 0s; }
+.b2 { --startX: 50vw; --startY: 75vh; --endX: 110vw; --endY: 20vh; --rot: 45deg; animation: flyAcross 14s linear infinite, flap 0.2s infinite alternate; animation-delay: 2s; }
+.b3 { --startX: 45vw; --startY: 70vh; --endX: 20vw; --endY: -10vh; --rot: -20deg; animation: flyAcross 10s linear infinite, flap 0.2s infinite alternate; animation-delay: 4s; }
+.b4 { --startX: 55vw; --startY: 75vh; --endX: 80vw; --endY: -10vh; --rot: 20deg; animation: flyAcross 16s linear infinite, flap 0.2s infinite alternate; animation-delay: 1s; }
+.b5 { --startX: 50vw; --startY: 65vh; --endX: -20vw; --endY: 40vh; --rot: -90deg; animation: flyAcross 13s linear infinite, flap 0.2s infinite alternate; animation-delay: 5s; }
+.b6 { --startX: 50vw; --startY: 80vh; --endX: 120vw; --endY: 60vh; --rot: 90deg; animation: flyAcross 15s linear infinite, flap 0.2s infinite alternate; animation-delay: 3s; }

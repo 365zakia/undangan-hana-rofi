@@ -817,43 +817,45 @@ p {
 }
 
 /* --- WADAH UTAMA --- */
+/* --- WADAH UTAMA (PAKAI FIXED BIAR GAK KEGANGGU .HERO) --- */
 .butterfly-container {
-    position: absolute;
+    position: fixed; /* Ganti dari absolute ke fixed */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh; /* Paksa tinggi setinggi layar HP */
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 5; /* Naikkan z-index supaya di atas segalanya tapi di bawah daun */
+    z-index: 99; /* Pastikan di atas background */
     overflow: hidden;
-    display: block !important; /* Paksa agar tidak ikut mode Flex-nya .hero */
 }
 
 /* --- ATURAN DASAR KUPU-KUPU --- */
 .butterfly {
     position: absolute;
-    width: 40px; /* Ukuran lebih kecil biar kelihatan banyak dan jauh */
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-image: url('kupu-kupu.png');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
-    /* Gerakan kepak sayap yang halus */
-    animation: flap 0.2s infinite alternate ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    
+    /* Titik Awal Default (Tengah Bawah) */
+    left: 50%;
+    top: 80%;
 }
 
-/* --- ANIMASI TERBANG MENYEBAR (SMOOTH TOTAL) --- */
+/* --- ANIMASI TERBANG MENYEBAR --- */
 @keyframes flyAcross {
     0% {
         opacity: 0;
-        transform: translate3d(var(--startX), var(--startY), 0) rotate(0deg);
+        transform: translate(0, 0) scale(0.2) rotate(0deg);
     }
-    10% { opacity: 0.8; }
-    90% { opacity: 0.8; }
+    10% { opacity: 1; }
     100% {
         opacity: 0;
-        transform: translate3d(var(--endX), var(--endY), 0) rotate(var(--rot));
+        /* Gerakan menyebar menggunakan translate */
+        transform: translate(var(--tw), var(--th)) scale(1.2) rotate(var(--rot));
     }
 }
 
@@ -863,12 +865,12 @@ p {
     to { transform: scaleX(0.3); }
 }
 
-/* --- PENGATURAN TIAP KUPU-KUPU (VARIASI RUTE) --- */
-/* Kita atur posisi awal di tengah, lalu menyebar ke arah berbeda */
+/* --- PENGATURAN RUTE (MENYEBAR KE SEGALA ARAH) --- */
+/* --tw = Target Width (Horizontal), --th = Target Height (Vertical) */
 
-.b1 { --startX: 50vw; --startY: 70vh; --endX: -10vw; --endY: 10vh; --rot: -45deg; animation: flyAcross 12s linear infinite, flap 0.2s infinite alternate; animation-delay: 0s; }
-.b2 { --startX: 50vw; --startY: 75vh; --endX: 110vw; --endY: 20vh; --rot: 45deg; animation: flyAcross 14s linear infinite, flap 0.2s infinite alternate; animation-delay: 2s; }
-.b3 { --startX: 45vw; --startY: 70vh; --endX: 20vw; --endY: -10vh; --rot: -20deg; animation: flyAcross 10s linear infinite, flap 0.2s infinite alternate; animation-delay: 4s; }
-.b4 { --startX: 55vw; --startY: 75vh; --endX: 80vw; --endY: -10vh; --rot: 20deg; animation: flyAcross 16s linear infinite, flap 0.2s infinite alternate; animation-delay: 1s; }
-.b5 { --startX: 50vw; --startY: 65vh; --endX: -20vw; --endY: 40vh; --rot: -90deg; animation: flyAcross 13s linear infinite, flap 0.2s infinite alternate; animation-delay: 5s; }
-.b6 { --startX: 50vw; --startY: 80vh; --endX: 120vw; --endY: 60vh; --rot: 90deg; animation: flyAcross 15s linear infinite, flap 0.2s infinite alternate; animation-delay: 3s; }
+.b1 { animation: flyAcross 8s linear infinite, flap 0.2s infinite alternate; --tw: -150px; --th: -400px; --rot: -45deg; animation-delay: 0s; }
+.b2 { animation: flyAcross 10s linear infinite, flap 0.2s infinite alternate; --tw: 150px; --th: -350px; --rot: 45deg; animation-delay: 2s; }
+.b3 { animation: flyAcross 7s linear infinite, flap 0.2s infinite alternate; --tw: -250px; --th: -200px; --rot: -90deg; animation-delay: 4s; }
+.b4 { animation: flyAcross 12s linear infinite, flap 0.2s infinite alternate; --tw: 250px; --th: -500px; --rot: 20deg; animation-delay: 1s; }
+.b5 { animation: flyAcross 9s linear infinite, flap 0.2s infinite alternate; --tw: 0px; --th: -600px; --rot: 0deg; animation-delay: 5s; }
+.b6 { animation: flyAcross 11s linear infinite, flap 0.2s infinite alternate; --tw: -300px; --th: -100px; --rot: -120deg; animation-delay: 3s; }

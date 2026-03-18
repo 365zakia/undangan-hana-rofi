@@ -815,3 +815,95 @@ p {
     text-align: center;
     line-height: 1.4;
 }
+
+/* ========================================= */
+/* ANIMASI SEPASANG BURUNG SYAHDU (HAL 1)    */
+/* ========================================= */
+
+.pigeon-pair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* Di atas background, di bawah daun */
+}
+
+/* Base Style untuk Burung 1 (::before) dan Burung 2 (::after) */
+.pigeon-pair::before,
+.pigeon-pair::after {
+    content: "";
+    position: absolute;
+    width: 80px; /* Ukuran burung */
+    height: 80px;
+    background-image: url('syahdu-bird.png'); /* Nama file sesuai yang di GitHub */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    
+    /* Efek Glow Putih agar mencolok di background gelap/ungu */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+
+    /* 3 Animasi: Muncul (Fade), Terbang (Fly), Putar Badan (Turn) */
+    animation: 
+        pigeonFade 2s ease forwards 4s, 
+        pigeonFlySyahdu 22s linear infinite 4s, 
+        pigeonTurn 22s infinite 4s;
+}
+
+/* --- Pengaturan Burung ke-2 agar Susul-susulan --- */
+.pigeon-pair::after {
+    animation-delay: 6s; /* Burung kedua muncul 2 detik setelah yang pertama */
+    width: 65px; /* Sedikit lebih kecil agar ada efek jauh-dekat */
+}
+
+/* --- KEYFRAMES (LOGIKA GERAKAN) --- */
+
+/* 1. Muncul Perlahan */
+@keyframes pigeonFade {
+    0% { opacity: 0; }
+    100% { opacity: 0.8; }
+}
+
+/* 2. Rute Terbang Elips (Melingkar Landai) */
+@keyframes pigeonFlySyahdu {
+    0% {
+        top: 35%;
+        left: -15%; /* Mulai dari kiri luar layar */
+    }
+    45% {
+        top: 25%;
+        left: 50%; /* Melintas di tengah atas nama */
+    }
+    50% {
+        top: 35%;
+        left: 115%; /* Keluar ke kanan layar */
+    }
+    51% {
+        top: 35%;
+        left: 115%;
+    }
+    95% {
+        top: 45%;
+        left: 50%; /* Balik melintas di tengah agak bawah */
+    }
+    100% {
+        top: 35%;
+        left: -15%; /* Kembali ke titik awal */
+    }
+}
+
+/* 3. Efek Cermin (Balik Badan) saat putar arah */
+@keyframes pigeonTurn {
+    0%, 49% {
+        transform: scaleX(1); /* Hadap kanan */
+    }
+    50%, 99% {
+        transform: scaleX(-1); /* Hadap kiri */
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}

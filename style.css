@@ -199,17 +199,52 @@ p {
 .delay-2 { animation-delay: 1.5s; } 
 .delay-3 { animation-delay: 2.5s; }
 
-/* --- HALAMAN 3 --- */
-.page-3 { 
-    width: 100%; 
-    margin: 0; 
-    padding: 0; 
+/* --- UPDATE HALAMAN 3 (TEKS & BACKGROUND) --- */
+.page-3 {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('background-halaman-3.png'); /* Gambar kamu jadi latar */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 40px; /* Jarak agar teks tidak mentok pinggir */
+    position: relative;
 }
 
-.page-3 img { 
-    width: 100%; 
-    height: auto; 
-    display: block; 
+.quran-container {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    z-index: 5;
+}
+
+.arabic-text {
+    font-family: 'Amiri', serif; /* Pastikan panggil font ini di head HTML */
+    font-size: 22px;
+    line-height: 2.2;
+    color: #5d467c;
+    margin-bottom: 15px;
+    direction: rtl; /* Arah teks kanan ke kiri */
+}
+
+.translation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #5d467c;
+    font-style: italic;
+    text-transform: none; /* Agar tidak kapital semua */
+}
+
+.surah-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #889149;
+    margin-top: 15px;
+    letter-spacing: 2px;
 }
 
 /* --- REVISI HALAMAN 4 (VERTIKAL) --- */

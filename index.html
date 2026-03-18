@@ -141,27 +141,30 @@
     </section>
 
     <section class="wishes-section hidden">
-        <h2 class="title-wish anim-wish">Doa  &  Ucapan</h2>
+        <h2 class="title-wish anim-wish">Doa & Ucapan</h2>
         <div class="ucapan-wrapper anim-frame">
             <img src="frame-ucapan.png" class="frame-ucapan">
             <img src="petal-2.png" class="petal-ucapan bunga-kiri">
             <img src="petal-2.png" class="petal-ucapan bunga-kanan">
+            <div class="purple-flower-icon anim-frame delay-1">
+                <img src="bunga-ungu.png" alt="Ikon Bunga Ungu">
+            </div>
             <form id="wish-form">
                 <input type="text" id="nama" placeholder="Nama">
                 <textarea id="ucapan" placeholder="Beri Doa & Ucapan"></textarea>
                 <div class="rsvp-group">
-    <p class="label-rsvp">Konfirmasi Kehadiran</p>
-    <div class="rsvp-options">
-        <label class="rsvp-item">
-            <input type="radio" name="kehadiran" value="Hadir" required>
-            <span class="rsvp-btn">Ya</span>
-        </label>
-        <label class="rsvp-item">
-            <input type="radio" name="kehadiran" value="Tidak Hadir">
-            <span class="rsvp-btn">Tidak</span>
-        </label>
-    </div>
-</div>
+                    <p class="label-rsvp">Konfirmasi Kehadiran</p>
+                    <div class="rsvp-options">
+                        <label class="rsvp-item">
+                            <input type="radio" name="kehadiran" value="Hadir" required>
+                            <span class="rsvp-btn">Ya</span>
+                        </label>
+                        <label class="rsvp-item">
+                            <input type="radio" name="kehadiran" value="Tidak Hadir">
+                            <span class="rsvp-btn">Tidak</span>
+                        </label>
+                    </div>
+                </div>
                 <button type="submit" class="btn-kirim">Kirim</button>
                 <p id="status"></p>
             </form>
@@ -251,6 +254,9 @@
     window.addEventListener("scroll", function() {
         if(window.scrollY >= page4.offsetTop - 300) page4.classList.add("show-page4");
         if(window.scrollY >= page5.offsetTop - 400) page5.classList.add("show-page5");
+        if(wishesSection && window.scrollY >= wishesSection.offsetTop - 400) {
+        wishesSection.classList.add("show-wish");
+    }
         
         // 3. LOGIKA AGAR ANIMASI HALAMAN 7 MUNCUL SAAT DI-SCROLL
         if(giftSection && window.scrollY >= giftSection.offsetTop - 400) {

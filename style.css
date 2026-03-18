@@ -817,7 +817,7 @@ p {
 }
 
 /* ========================================= */
-/* ANIMASI SEPASANG BURUNG SYAHDU (HAL 1)    */
+/* ANIMASI SEPASANG BURUNG DINAMIS (HAL 1)   */
 /* ========================================= */
 
 .pigeon-pair {
@@ -827,83 +827,71 @@ p {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Di atas background, di bawah daun */
+    z-index: 1; 
 }
 
-/* Base Style untuk Burung 1 (::before) dan Burung 2 (::after) */
 .pigeon-pair::before,
 .pigeon-pair::after {
     content: "";
     position: absolute;
-    width: 80px; /* Ukuran burung */
-    height: 80px;
-    background-image: url('syahdu-bird.png'); /* Nama file sesuai yang di GitHub */
+    width: 60px; 
+    height: 60px;
+    background-image: url('syahdu-bird.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;
-    
-    /* Efek Glow Putih agar mencolok di background gelap/ungu */
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
 
-    /* 3 Animasi: Muncul (Fade), Terbang (Fly), Putar Badan (Turn) */
+    /* DURASI DIPERCEPAT JADI 8 DETIK */
     animation: 
-        pigeonFade 2s ease forwards 4s, 
-        pigeonFlySyahdu 22s linear infinite 4s, 
-        pigeonTurn 22s infinite 4s;
+        pigeonFade 1s ease forwards 3.5s, 
+        pigeonFlyWow 8s ease-in-out infinite 3.5s;
 }
 
-/* --- Pengaturan Burung ke-2 agar Susul-susulan --- */
+/* Burung kedua muncul lebih cepat biar kelihatan mengejar */
 .pigeon-pair::after {
-    animation-delay: 6s; /* Burung kedua muncul 2 detik setelah yang pertama */
-    width: 65px; /* Sedikit lebih kecil agar ada efek jauh-dekat */
+    animation-delay: 4.2s; 
+    width: 70px;
+    opacity: 0;
 }
 
-/* --- KEYFRAMES (LOGIKA GERAKAN) --- */
+/* --- KEYFRAMES BARU: LEBIH LINCAH & BERBELOK --- */
 
-/* 1. Muncul Perlahan */
 @keyframes pigeonFade {
-    0% { opacity: 0; }
-    100% { opacity: 0.8; }
+    to { opacity: 0.9; }
 }
 
-/* 2. Rute Terbang Elips (Melingkar Landai) */
-@keyframes pigeonFlySyahdu {
+@keyframes pigeonFlyWow {
     0% {
-        top: 35%;
-        left: -15%; /* Mulai dari kiri luar layar */
+        top: 40%;
+        left: -20%;
+        transform: scaleX(1) rotate(10deg); /* Hadap kanan, agak nungging */
     }
-    45% {
-        top: 25%;
-        left: 50%; /* Melintas di tengah atas nama */
+    40% {
+        top: 20%;
+        left: 50%;
+        transform: scaleX(1) rotate(-10deg); /* Di tengah agak naik */
     }
     50% {
-        top: 35%;
-        left: 115%; /* Keluar ke kanan layar */
+        top: 40%;
+        left: 120%;
+        transform: scaleX(1) rotate(0deg); /* Keluar kanan */
     }
+    /* Balik Badan Cepat */
     51% {
-        top: 35%;
-        left: 115%;
+        transform: scaleX(-1) rotate(0deg); /* Putar arah hadap kiri */
     }
-    95% {
-        top: 45%;
-        left: 50%; /* Balik melintas di tengah agak bawah */
+    90% {
+        top: 60%;
+        left: 50%;
+        transform: scaleX(-1) rotate(15deg); /* Lewat bawah tengah */
     }
     100% {
-        top: 35%;
-        left: -15%; /* Kembali ke titik awal */
+        top: 40%;
+        left: -20%;
+        transform: scaleX(-1) rotate(0deg);
     }
 }
-
-/* 3. Efek Cermin (Balik Badan) saat putar arah */
-@keyframes pigeonTurn {
-    0%, 49% {
-        transform: scaleX(1); /* Hadap kanan */
-    }
-    50%, 99% {
-        transform: scaleX(-1); /* Hadap kiri */
-    }
-    100% {
-        transform: scaleX(1);
     }
 }

@@ -666,7 +666,7 @@ p {
 
 .bank-logo {
     width: 85px;
-    margin: -30 0 -55px 0; /* Jarak logo ke nama dirapatkan */
+    margin: -30px 0 -55px 0; /* Jarak logo ke nama dirapatkan */
     display: block;
 }
 

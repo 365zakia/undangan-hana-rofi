@@ -808,7 +808,7 @@ p {
     margin-top: 15px;
     margin-left: 22px; /* Sesuaikan dengan margin tombol kirim kamu */
     font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 700;
     color: #f0edf5 !important; /* GANTI WARNA DI SINI (Putih Terang) */
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Bayangan agar makin kontras */

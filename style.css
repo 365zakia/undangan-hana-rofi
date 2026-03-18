@@ -36,21 +36,21 @@ body {
 
 .daun-hias {
     position: absolute;
-    width: 200px;
+    width: 162px;
     z-index: 2;
     pointer-events: none;
 }
 
 .daun-kiri {
-    left: -50px;
-    top: 10%;
+    left: -52px;
+    top: 25%;
     transform-origin: left center;
     animation: slideInLeft 1.5s ease-out forwards, swingLeaf 4s ease-in-out 1.5s infinite;
 }
 
 .daun-kanan {
-    right: -50px;
-    bottom: 10%;
+    right: -14px;
+    bottom: 15%;
     transform-origin: right center;
     animation: slideInRight 1.5s ease-out forwards, swingLeaf 4s ease-in-out 1.5s infinite;
 }
@@ -480,7 +480,7 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-weight: 600;
-    color: #f0edf5 !important;
+    color: #faf7fe !important;
     margin-bottom: 10px;
     margin-left: 22px;
     text-transform: none;

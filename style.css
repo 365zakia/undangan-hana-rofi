@@ -817,15 +817,14 @@ p {
 }
 
 /* --- WADAH UTAMA --- */
-/* --- WADAH UTAMA (PAKAI FIXED BIAR GAK KEGANGGU .HERO) --- */
 .butterfly-container {
-    position: fixed; /* Ganti dari absolute ke fixed */
+    position: fixed; /* Tetap pakai fixed agar tidak terganggu Flex Hero */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 99; /* Pastikan di atas background */
+    z-index: 99;
     overflow: hidden;
 }
 
@@ -840,37 +839,38 @@ p {
     opacity: 0;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
     
-    /* Titik Awal Default (Tengah Bawah) */
+    /* Titik kumpul awal: Tengah bawah */
     left: 50%;
-    top: 80%;
+    top: 75%;
+    margin-left: -22px; /* Setengah dari width agar center pas */
 }
 
-/* --- ANIMASI TERBANG MENYEBAR --- */
-@keyframes flyAcross {
+/* --- ANIMASI TUNGGAL (GABUNGAN TERBANG & KEPAK) --- */
+@keyframes magicalSpread {
     0% {
         opacity: 0;
-        transform: translate(0, 0) scale(0.2) rotate(0deg);
+        transform: translate(0, 0) scale(0.3) rotate(0deg) scaleX(1);
     }
-    10% { opacity: 1; }
+    10% {
+        opacity: 1;
+    }
+    /* Efek Kepak Sayap di tengah perjalanan (pakai scaleX) */
+    25%, 75% { transform: translate(var(--tw), var(--th)) scale(1) rotate(var(--rot)) scaleX(0.3); }
+    50% { transform: translate(var(--tw), var(--th)) scale(1.1) rotate(var(--rot)) scaleX(1); }
+    
+    90% { opacity: 1; }
     100% {
         opacity: 0;
-        /* Gerakan menyebar menggunakan translate */
-        transform: translate(var(--tw), var(--th)) scale(1.2) rotate(var(--rot));
+        transform: translate(var(--endX), var(--endY)) scale(1.3) rotate(var(--rot)) scaleX(1);
     }
 }
 
-/* --- ANIMASI KEPAK SAYAP --- */
-@keyframes flap {
-    from { transform: scaleX(1); }
-    to { transform: scaleX(0.3); }
-}
+/* --- PENGATURAN TIAP KUPU-KUPU (Rute Menyebar) --- */
+/* --endX & --endY adalah titik tujuan akhir menyebar */
 
-/* --- PENGATURAN RUTE (MENYEBAR KE SEGALA ARAH) --- */
-/* --tw = Target Width (Horizontal), --th = Target Height (Vertical) */
-
-.b1 { animation: flyAcross 8s linear infinite, flap 0.2s infinite alternate; --tw: -150px; --th: -400px; --rot: -45deg; animation-delay: 0s; }
-.b2 { animation: flyAcross 10s linear infinite, flap 0.2s infinite alternate; --tw: 150px; --th: -350px; --rot: 45deg; animation-delay: 2s; }
-.b3 { animation: flyAcross 7s linear infinite, flap 0.2s infinite alternate; --tw: -250px; --th: -200px; --rot: -90deg; animation-delay: 4s; }
-.b4 { animation: flyAcross 12s linear infinite, flap 0.2s infinite alternate; --tw: 250px; --th: -500px; --rot: 20deg; animation-delay: 1s; }
-.b5 { animation: flyAcross 9s linear infinite, flap 0.2s infinite alternate; --tw: 0px; --th: -600px; --rot: 0deg; animation-delay: 5s; }
-.b6 { animation: flyAcross 11s linear infinite, flap 0.2s infinite alternate; --tw: -300px; --th: -100px; --rot: -120deg; animation-delay: 3s; }
+.b1 { animation: magicalSpread 7s linear infinite; --endX: -150px; --endY: -500px; --rot: -30deg; animation-delay: 0s; }
+.b2 { animation: magicalSpread 9s linear infinite; --endX: 180px; --endY: -450px; --rot: 40deg; animation-delay: 1.5s; }
+.b3 { animation: magicalSpread 6s linear infinite; --endX: -250px; --endY: -200px; --rot: -70deg; animation-delay: 3s; }
+.b4 { animation: magicalSpread 10s linear infinite; --endX: 280px; --endY: -600px; --rot: 20deg; animation-delay: 0.8s; }
+.b5 { animation: magicalSpread 8s linear infinite; --endX: -50px; --endY: -700px; --rot: -10deg; animation-delay: 4.5s; }
+.b6 { animation: magicalSpread 11s linear infinite; --endX: 300px; --endY: -150px; --rot: 80deg; animation-delay: 2.2s; }

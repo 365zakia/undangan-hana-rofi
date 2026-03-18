@@ -923,3 +923,15 @@ p {
 
 /* Kupu 10: Special (Melintas Cepat di Tengah) */
 .b10 { --startX: 40%; --startY: 110%; --endX: 60%; --endY: -20%; --rot: 10deg; animation: flyFlow 6s linear infinite; animation-delay: 1.5s; }
+/* --- ANIMASI HALAMAN 3 --- */
+.anim-page3 {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.5s ease; /* Durasi 1.5 detik biar elegan */
+}
+
+/* Class ini akan ditempelkan via JavaScript saat halaman 3 aktif */
+.show-page3 .anim-page3 {
+    opacity: 1;
+    transform: translateY(0);
+}

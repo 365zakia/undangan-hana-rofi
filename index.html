@@ -100,7 +100,7 @@
                     <h2 class="event-title">Tasyakuran</h2>
                     <p class="event-day">Sabtu</p>
                     <p class="event-date">04 April 2026</p>
-                    <p class="event-time">Jam 11.00 WIB</p>
+                    <p class="event-time">Jam 11.30 WIB</p>
                 </div>
                 <div class="location anim-page5">
                     <img src="icon-location.png" class="location-icon">
@@ -124,6 +124,19 @@
             <form id="wish-form">
                 <input type="text" id="nama" placeholder="Nama">
                 <textarea id="ucapan" placeholder="Beri Doa & Ucapan"></textarea>
+                <div class="rsvp-group">
+    <p class="label-rsvp">Konfirmasi Kehadiran</p>
+    <div class="rsvp-options">
+        <label class="rsvp-item">
+            <input type="radio" name="kehadiran" value="Hadir" required>
+            <span class="rsvp-btn">Ya, Hadir</span>
+        </label>
+        <label class="rsvp-item">
+            <input type="radio" name="kehadiran" value="Tidak Hadir">
+            <span class="rsvp-btn">Maaf, Berhalangan</span>
+        </label>
+    </div>
+</div>
                 <button type="submit" class="btn-kirim">Kirim</button>
                 <p id="status"></p>
             </form>

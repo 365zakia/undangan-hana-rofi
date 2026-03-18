@@ -666,7 +666,7 @@ p {
 
 .bank-logo {
     width: 85px;
-    margin: 0 0 -55px 0; /* Jarak logo ke nama dirapatkan */
+    margin: -30 0 -55px 0; /* Jarak logo ke nama dirapatkan */
     display: block;
 }
 
@@ -675,7 +675,7 @@ p {
     font-weight: 700;
     font-size: 14px; /* Sesuai desain */
     color: #5d467c;
-    margin: 0 0 8px 0; /* Jarak nama ke nomor rekening dirapatkan */
+    margin: 0 0 -12px 0; /* Jarak nama ke nomor rekening dirapatkan */
     text-transform: uppercase;
 }
 

@@ -480,7 +480,7 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-weight: 600;
-    color: #ffaf7fe;
+    color: #f0edf5 !important;
     margin-bottom: 10px;
     margin-left: 22px;
     text-transform: none;

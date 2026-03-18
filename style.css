@@ -594,6 +594,7 @@ p {
 
 .frame-hadiah {
     width: 100%;
+    margin-right: 40px;
     z-index: 1;
     /* Menghapus margin-left negatif agar frame tetap center */
 }
@@ -604,6 +605,7 @@ p {
     z-index: 2;
     width: 75%; /* Sedikit diperlebar agar teks leluasa */
     top: 45%; /* Posisi vertikal di tengah frame */
+    left: 34px;
     transform: translateY(-50%); /* Sentralisasi vertikal sempurna */
     display: flex;
     flex-direction: column;
@@ -626,7 +628,7 @@ p {
 
 .icon-kado {
     width: 70px; /* Sedikit disesuaikan */
-    margin-bottom: 8px; /* Jarak kado ke judul dirapatkan */
+    margin-bottom: -20px; /* Jarak kado ke judul dirapatkan */
 }
 
 .gift-title {
@@ -664,7 +666,7 @@ p {
 
 .bank-logo {
     width: 85px;
-    margin: 0 0 8px 0; /* Jarak logo ke nama dirapatkan */
+    margin: 0 0 -55px 0; /* Jarak logo ke nama dirapatkan */
     display: block;
 }
 
@@ -689,6 +691,7 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 700;
+    margin-top: -2px
     color: #5d467c;
     letter-spacing: 1.5px;
 }

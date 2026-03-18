@@ -821,91 +821,63 @@ p {
 /* ========================================= */
 
 .butterfly-container {
-    position: fixed; /* Tetap pakai fixed agar selayar penuh */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     pointer-events: none;
-    z-index: 10; /* Di bawah daun, di atas background */
+    z-index: 10;
     overflow: hidden;
 }
 
-/* --- LOGIKA PERBANYAKAN BARU (PAKAI SVG) --- */
-.butterfly-swarm {
+.butterfly {
     position: absolute;
-    width: 35px; /* Ukuran kupu-kupu diperkecil */
+    width: 35px; /* Ukuran diperkecil dikit biar lebih manis kalau banyak */
     height: 35px;
-    background-image: url('kupu-kupu.png'); /* File kupu-kupu watercolor kamu */
+    background-image: url('kupu-kupu.png');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0; /* Mulai dari pudar dulu */
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)); /* Glow lembut */
-    
-    /* Titik kumpul awal: Tengah bawah */
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    
-    /* --- ANIMASI GABUNGAN: TERBANG SAT-SET & KEPAK --- */
-    animation: 
-        magicalSuddenFlow 10s linear infinite, /* Terbang & Meliuk, Tanpa Delay */
-        flap 0.15s linear infinite; /* Kepak sayap super cepet */
+    opacity: 0;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
 }
 
-/* --- KEYFRAMES RUTE TERBANG MENYELURUH --- */
-@keyframes magicalSuddenFlow {
+/* --- ANIMASI UTAMA: FLOW & FLAP --- */
+@keyframes flyFlow {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+        top: var(--startY);
+        left: var(--startX);
+        transform: scale(0.3) rotate(0deg) scaleX(1);
     }
-    10% {
-        opacity: 0.9;
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
-    25% {
-        top: 30%;
-        left: 20%; /* Meliuk ke kiri atas */
-        transform: translate(-50%, -50%) scale(1.1) rotate(-15deg);
-    }
-    50% {
-        top: 60%;
-        left: 80%; /* Meliuk ke kanan tengah */
-        transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-    }
-    75% {
-        top: 25%;
-        left: 50%; /* Tengah agak atas, kumpul lagi */
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
-    }
+    15% { opacity: 0.9; }
+    /* Efek kepak sayap (scaleX) */
+    25%, 75% { transform: scale(1) rotate(var(--rot)) scaleX(0.3); }
+    50% { transform: scale(1.1) rotate(var(--rot)) scaleX(1); }
     100% {
-        top: -10%; /* Terbang lurus ke atas angkasa */
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
         opacity: 0;
+        top: var(--endY);
+        left: var(--endX);
+        transform: scale(1.3) rotate(var(--rot)) scaleX(1);
     }
 }
 
-/* --- KEYFRAMES KEPAK SAYAP --- */
-@keyframes flap {
-    0% { transform: scaleY(1); }
-    50% { transform: scaleY(0.1); }
-    100% { transform: scaleY(1); }
-}
+/* --- VARIASI 10 RUTE TERBANG --- */
 
-/* --- TEKNIK PERBANYAKAN SVG UNTUK SELURUH KUPU-KUPU --- */
-/* Kita panggil file SVG yang berisi 10 kupu-kupu menari acak */
-.butterfly-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Ganti 'kupu-kupu-swarm.svg' dengan file SVG kamu nanti */
-    background-image: url('kupu-kupu-swarm.svg');
-    background-size: cover;
-    background-repeat: repeat;
-    pointer-events: none;
-    opacity: 0.6; /* Kupu-kupu bayangan lebih pudar */
-}
+/* Kupu 1-3: Dominan dari Bawah */
+.b1 { --startX: 20%; --startY: 100%; --endX: 80%; --endY: -10%; --rot: 30deg; animation: flyFlow 8s linear infinite; }
+.b2 { --startX: 80%; --startY: 100%; --endX: 20%; --endY: -10%; --rot: -30deg; animation: flyFlow 10s linear infinite; animation-delay: 2s; }
+.b3 { --startX: 50%; --startY: 100%; --endX: 50%; --endY: -20%; --rot: 0deg; animation: flyFlow 7s linear infinite; animation-delay: 4s; }
+
+/* Kupu 4-6: Dari Samping Kiri */
+.b4 { --startX: -10%; --startY: 20%; --endX: 110%; --endY: 50%; --rot: 90deg; animation: flyFlow 12s linear infinite; animation-delay: 1s; }
+.b5 { --startX: -10%; --startY: 70%; --endX: 110%; --endY: 30%; --rot: 70deg; animation: flyFlow 9s linear infinite; animation-delay: 5s; }
+.b6 { --startX: -10%; --startY: 50%; --endX: 80%; --endY: -10%; --rot: 45deg; animation: flyFlow 11s linear infinite; animation-delay: 3s; }
+
+/* Kupu 7-9: Dari Samping Kanan */
+.b7 { --startX: 110%; --startY: 40%; --endX: -10%; --endY: 60%; --rot: -90deg; animation: flyFlow 13s linear infinite; animation-delay: 0.5s; }
+.b8 { --startX: 110%; --startY: 10%; --endX: 20%; --endY: 110%; --rot: -120deg; animation: flyFlow 15s linear infinite; animation-delay: 6s; }
+.b9 { --startX: 110%; --startY: 80%; --endX: -10%; --endY: 20%; --rot: -60deg; animation: flyFlow 8.5s linear infinite; animation-delay: 2.5s; }
+
+/* Kupu 10: Special (Melintas Cepat di Tengah) */
+.b10 { --startX: 40%; --startY: 110%; --endX: 60%; --endY: -20%; --rot: 10deg; animation: flyFlow 6s linear infinite; animation-delay: 1.5s; }

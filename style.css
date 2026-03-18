@@ -665,6 +665,8 @@ p {
     animation: pulse-animation 2s infinite; 
 }
 
+
+
 /* --- HALAMAN 7 : GIFT SECTION (SUSUNAN ULANG JARAK & ANIMASI) --- */
 .gift-section {
     width: 100%;
@@ -934,4 +936,64 @@ p {
 .show-page3 .anim-page3 {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- PENGATURAN ANIMASI HALAMAN 6 & 7 --- */
+
+/* 1. Keadaan awal semua elemen (Sembunyi) */
+.anim-wish, .anim-frame, .anim-gift {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 2. Trigger muncul untuk Halaman 6 (Doa) */
+/* Kita pakai class .show-wish yang akan dipicu JS */
+.show-wish .anim-wish {
+    opacity: 1;
+    transform: translateY(0);
+}
+.show-wish .anim-frame {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s; /* Frame muncul belakangan */
+}
+
+/* 3. Trigger muncul untuk Halaman 7 (Kado) */
+.show-gift .anim-gift {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- EFEK MUNCUL BERURUTAN (DELAY) DI HAL 7 --- */
+.gift-content .icon-kado { transition-delay: 0.2s; }
+.gift-content .gift-title { transition-delay: 0.4s; }
+.gift-content .gift-desc { transition-delay: 0.6s; }
+.gift-content .bank-logo { transition-delay: 0.8s; }
+.gift-content .account-name { transition-delay: 1s; }
+.gift-content #norek { transition-delay: 1.1s; }
+.gift-content .account-number-display { transition-delay: 1.2s; }
+
+/* --- PENGATURAN IKON BUNGA UNGU HALAMAN 6 --- */
+.purple-flower-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 65px; /* Ukuran ikon, bisa kamu ubah sesuai selera */
+    top: 15%;    /* Jarak dari atas bingkai agar pas di tengah area kosong */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.purple-flower-icon img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Delay tambahan agar bunga muncul setelah bingkai (frame) muncul */
+.delay-flower {
+    transition-delay: 0.8s;
 }

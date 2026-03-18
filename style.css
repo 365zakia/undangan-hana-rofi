@@ -822,10 +822,11 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Paksa tinggi setinggi layar HP */
     pointer-events: none;
-    z-index: 1;
+    z-index: 5; /* Naikkan z-index supaya di atas segalanya tapi di bawah daun */
     overflow: hidden;
+    display: block !important; /* Paksa agar tidak ikut mode Flex-nya .hero */
 }
 
 /* --- ATURAN DASAR KUPU-KUPU --- */

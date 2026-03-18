@@ -87,10 +87,9 @@ h1.nama {
 
 p { 
     font-family: 'Montserrat', sans-serif; 
-    color: #faf7fe; 
+    color: #5d467c; 
     font-size: 11px; 
     letter-spacing: 2px; 
-    margin-left: 22px;
     text-transform: none; 
 }
 
@@ -445,8 +444,15 @@ p {
     align-items: flex-start;
     text-align: center; 
     padding: 0px 43px;
+    
 }
 
+/* Warna saat tombol sedang mengirim */
+.btn-kirim:disabled {
+    background: #a195b9 !important; /* Ungu yang lebih muda/pucat */
+    cursor: not-allowed;
+    animation: none; /* Berhenti berdenyut saat mengirim */
+}
 .title-wish { 
     font-family: 'Great Vibes', cursive; 
     font-size: 50px; 
@@ -474,14 +480,16 @@ p {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     font-weight: 600;
-    color: #f0edf5;
+    color: #ffaf7fe;
     margin-bottom: 10px;
+    margin-left: 22px;
     text-transform: none;
 }
 
 .rsvp-options {
     display: flex;
     justify-content: center;
+    margin-left: 22px;
     gap: 10px;
 }
 

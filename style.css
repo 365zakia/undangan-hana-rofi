@@ -979,7 +979,7 @@ p {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 90;
     width: 65px; /* Ukuran ikon, bisa kamu ubah sesuai selera */
     top: 15%;    /* Jarak dari atas bingkai agar pas di tengah area kosong */
     display: flex;

@@ -214,16 +214,18 @@ p {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    padding-bottom: 150px;
     position: relative;
     box-sizing: border-box;
 }
 
 .quran-container {
     width: 100%;
-    max-width: 350px; /* Batasi lebar kotak agar teks tidak terlalu melar ke pinggir */
+    max-width: 350px;
+    margin-top: 15vh;        /* TAMBAHKAN INI: Jarak teks dari atas layar (15% dari tinggi layar) */
     z-index: 5;
     display: flex;
-    flex-direction: column; /* Menyusun teks Arab, Arti, dan Nama Surah ke bawah */
+    flex-direction: column;
 }
 
 .arabic-text {

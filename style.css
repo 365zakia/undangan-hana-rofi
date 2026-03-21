@@ -14,8 +14,11 @@ body {
 .phone-frame {
     width: 100%;
     max-width: 420px;
+    overflow-x: hidden;
     background: white;
-    overflow: hidden;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     position: relative;
 }
 
@@ -204,40 +207,40 @@ p {
     width: 100%;
     min-height: 100vh;
     background-image: url('background-halaman-3.png'); /* Gambar kamu jadi latar */
-    background-size: contain;
+    background-size: cover;
+    flex-direction: column;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 129px; /* Jarak agar teks tidak mentok pinggir */
-    margin-left: -102px;
+    padding: 20px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .quran-container {
-    width: 93%;
-    max-width: 452px;
-    text-align: right;
-    margin-left: -89px;
-    margin-top: -398px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    margin: 0;
     z-index: 5;
 }
 
 .arabic-text {
     font-family: 'Amiri', serif; /* Pastikan panggil font ini di head HTML */
-    font-size: 22px;
-    line-height: 2.2;
+    font-size: 20px;
+    line-height: 2;
     color: #5d467c;
-    margin-bottom: 34px;
+    margin-bottom: 20px;
     direction: rtl; /* Arah teks kanan ke kiri */
 }
 
 .translation-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    line-height: 1.8;
-    text-align: left;
-    margin-left: 28px;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 auto;
     color: #5d467c;
     font-style: normal;
     text-transform: none; /* Agar tidak kapital semua */
@@ -248,9 +251,9 @@ p {
     font-size: 11px;
     font-weight: 700;
     text-align: left;
-    margin-left: 30px;
     color: #889149;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-left: 0px;
     letter-spacing: 2px;
 }
 

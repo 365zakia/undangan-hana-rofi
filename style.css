@@ -236,7 +236,7 @@ p {
     color: #5d467c;
     direction: rtl;
     text-align: right;
-    margin-bottom: 25px;
+    margin-bottom: 8px;
 }
 
 .translation-text {
@@ -935,7 +935,7 @@ p {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 90;
+    z-index: 999;
     width: 65px;
     top: 15%;
     display: flex;

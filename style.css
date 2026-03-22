@@ -636,7 +636,7 @@ p {
     position: absolute; 
     transform: translateX(-5%); 
     top: 40%; 
-    left: 3%; 
+    left: 0%; 
     width: 72%; 
 }
 
@@ -844,7 +844,7 @@ p {
     display: block;
     width: 100%;
     margin-top: 15px;
-    margin-left: 22px;
+    margin-left: 15px;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 700;

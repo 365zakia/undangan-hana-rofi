@@ -359,42 +359,42 @@ p {
 .show-page4 .anim-page4:nth-child(3) { transition-delay: 0.8s; }
 
 /* --- HALAMAN 5 : ACARA --- */
-/* --- HALAMAN 5 : ACARA --- */
 .page-5 {
     width: 100%; 
-    min-height: 100vh; /* Memastikan halaman ada tingginya */
-    background-image: url('background-halaman-5.webp');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    position: relative; /* Anchor untuk bunga */
+    min-height: 100vh;
+    /* Ini background ungu polos/bertekstur dari Canva */
+    background-image: url('background-halaman-5.webp'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     overflow: hidden;
 }
 
 .floral-frame { 
     position: absolute; 
-    /* Paksa nempel di semua sudut */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Buat 100% supaya menutupi seluruh background ungu */
     
-    object-fit: fill; /* Ini yang bikin dia simetris kayak di Canva */
-    z-index: 1; /* Angka kecil supaya di bawah teks */
+    /* --- INI BARIS YANG TADI KURANG --- */
+    background-image: url('floral-frame.webp'); /* Nama file frame transparanmu */
+    background-size: 100% auto; /* Biar lebarnya penuh, tingginya proporsional */
+    background-repeat: no-repeat;
+    background-position: top center;
+    /* ---------------------------------- */
+    
+    z-index: 1; 
     pointer-events: none; 
-    
-    /* Kembalikan animasi bawaanmu */
     opacity: 0; 
     transform: scale(0.9); 
     transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1); 
 }
 
-/* Pastikan class ini dipicu oleh JS-mu saat scroll */
+/* Munculin saat di-scroll */
 .show-page5 .floral-frame {
     opacity: 1;
     transform: scale(1);
@@ -402,12 +402,13 @@ p {
 
 .event-container { 
     position: relative; 
-    z-index: 10; /* Angka besar supaya di ATAS bunga */
-    width: 100%; 
-    max-width: 400px;
-    /* Hapus top: 147px dulu, kita lihat dia ke tengah atau enggak */
+    z-index: 5; 
+    width: 100%;
+    /* Jarak ini buat naruh teks tepat di tengah lengkungan putih */
+    margin-top: 170px; 
+    display: flex;
+    justify-content: center;
 }
-
 .event-wrapper { 
     position: absolute; 
     top: 32%; 

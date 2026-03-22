@@ -129,26 +129,27 @@
 
         <!-- Form dengan animasi fade up tipis -->
         <form id="wish-form" class="anim-wish" style="transition-delay: 0.6s;">
-    <input type="text" name="nama" id="nama" placeholder="Nama" required>
-    
-    <textarea name="ucapan" id="ucapan" placeholder="Beri Doa & Ucapan" required></textarea>
-    
-    <div class="rsvp-group">
-        <p class="label-rsvp">Konfirmasi Kehadiran</p>
-        <div class="rsvp-options">
-            <label class="rsvp-item">
-                <input type="radio" name="kehadiran" value="Hadir" required>
-                <span class="rsvp-btn">Ya</span>
-            </label>
-            <label class="rsvp-item">
-                <input type="radio" name="kehadiran" value="Tidak Hadir">
-                <span class="rsvp-btn">Tidak</span>
-            </label>
-        </div>
+            <input type="text" id="nama" placeholder="Nama" required>
+            <textarea id="ucapan" placeholder="Beri Doa & Ucapan" required></textarea>
+            
+            <div class="rsvp-group">
+                <p class="label-rsvp">Konfirmasi Kehadiran</p>
+                <div class="rsvp-options">
+                    <label class="rsvp-item">
+                        <input type="radio" name="kehadiran" value="Hadir" required>
+                        <span class="rsvp-btn">Ya</span>
+                    </label>
+                    <label class="rsvp-item">
+                        <input type="radio" name="kehadiran" value="Tidak Hadir">
+                        <span class="rsvp-btn">Tidak</span>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn-kirim">Kirim</button>
+            <p id="status"></p>
+        </form>
     </div>
-    <button type="submit" class="btn-kirim">Kirim</button>
-    <p id="status"></p>
-</form>
+</section>
 
     <!-- SECTION 7: GIFT (Ditambah loading lazy) -->
     <section class="gift-section hidden">

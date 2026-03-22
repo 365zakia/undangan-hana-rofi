@@ -762,7 +762,7 @@ p {
     font-size: 14px;
     color: #5d467c;
     margin: 0 0 0 0;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .account-number-display {

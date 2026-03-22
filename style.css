@@ -125,9 +125,9 @@ p {
     background-position: center;
     overflow: hidden; 
     display: flex; 
-    justify-content: flex-start; 
+    justify-content: center; 
     align-items: flex-start; 
-    text-align: left;
+    text-align: center;
 }
 
 .inner-content { 
@@ -885,10 +885,6 @@ p {
 .b4 { --startX: -10%; --startY: 20%; --endX: 110%; --endY: 50%; --rot: 90deg; animation: flyFlow 12s linear infinite; animation-delay: 1s; }
 .b5 { --startX: -10%; --startY: 70%; --endX: 110%; --endY: 30%; --rot: 70deg; animation: flyFlow 9s linear infinite; animation-delay: 5s; }
 .b6 { --startX: -10%; --startY: 50%; --endX: 80%; --endY: -10%; --rot: 45deg; animation: flyFlow 11s linear infinite; animation-delay: 3s; }
-.b7 { --startX: 110%; --startY: 40%; --endX: -10%; --endY: 60%; --rot: -90deg; animation: flyFlow 13s linear infinite; animation-delay: 0.5s; }
-.b8 { --startX: 110%; --startY: 10%; --endX: 20%; --endY: 110%; --rot: -120deg; animation: flyFlow 15s linear infinite; animation-delay: 6s; }
-.b9 { --startX: 110%; --startY: 80%; --endX: -10%; --endY: 20%; --rot: -60deg; animation: flyFlow 8.5s linear infinite; animation-delay: 2.5s; }
-.b10 { --startX: 40%; --startY: 110%; --endX: 60%; --endY: -20%; --rot: 10deg; animation: flyFlow 6s linear infinite; animation-delay: 1.5s; }
 
 /* --- ANIMASI HALAMAN 3 --- */
 .anim-page3 {

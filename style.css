@@ -965,6 +965,8 @@ p {
 .purple-flower-icon img {
     width: 100%;
     height: auto;
+    margin: 85px 0;
+    margin-right: 145px;
     object-fit: contain;
 }
 
